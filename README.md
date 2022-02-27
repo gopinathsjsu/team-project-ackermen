@@ -12,3 +12,9 @@ Team Members
 
 ## Github Project Board
 ## https://github.com/gopinathsjsu/team-project-ackermen/projects
+
+## Image sources
+
+https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
+https://unsplash.com/t/food-drink
+https://www.pexels.com/search/breakfast/
