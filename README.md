@@ -19,3 +19,30 @@ Team Members
 https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
 https://unsplash.com/t/food-drink
 https://www.pexels.com/search/breakfast/
+
+
+Steps to run the project.
+
+1. Download and Install maven.
+2. Download and Install postman to test APIs
+3. Go to "your-project-location/HotelBooking"
+4. Open terminal and execute command "mvn clean install" and wait for the compilation to complete.
+5. Execute the command "mvn spring-boot:run", the embedded tomacat server will start at port 8090.
+6. Using postman test the APIs - 
+      1. GET API - http://localhost:8090/getAllUsers -  Displays the user data that is currently available
+      2. POST API - http://localhost:8090/createUser - Creates a new user in th database using the data sent with API
+      
+      
+      Data Format should be - 
+      {
+        "id": 116,
+        "firstName": "3xk",
+        "lastName": "tyson",
+        "email": "tyson@mail.com",
+        "password": "tyson@nypd",
+        "country": "USA",
+        "city": "Manhattan",
+        "address": "1 washington sq. san jose",
+        "zipcode": "95133"
+      }
+7. If you cant connect to the database that is provided, change it to your local database in application.properties file. Location of the file will be "your-project-location/HotelBooking/src/main/resources"
