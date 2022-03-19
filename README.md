@@ -21,6 +21,11 @@ https://unsplash.com/t/food-drink
 https://www.pexels.com/search/breakfast/
 
 
+Note - Always fetch latest updates from repository before you start working on.
+
+
+
+
 Steps to run the project.
 
 1. Download and Install maven.
