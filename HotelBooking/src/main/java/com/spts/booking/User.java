@@ -1,8 +1,14 @@
 package com.spts.booking;
 
+import java.io.Serializable;
+
 /* Class representing hotel booking website user */
-public class User {
-    private Integer id;
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer id;
     private String firstName;
     private String lastName;
     private String email;
@@ -11,8 +17,10 @@ public class User {
     private String city;
     private String address;
     private String zipcode;
+    private String userType;
     
-    public User() {
+    
+	public User() {
    
     }
 
@@ -87,5 +95,14 @@ public class User {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+	
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
     
 }
