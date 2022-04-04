@@ -34,20 +34,25 @@ Steps to run the project.
 4. Open terminal and execute command "mvn clean install" and wait for the compilation to complete.
 5. Execute the command "mvn spring-boot:run", the embedded tomacat server will start at port 8090.
 6. Using postman test the APIs - 
-      1. GET API - http://localhost:8090/getAllUsers -  Displays the user data that is currently available
-      2. POST API - http://localhost:8090/createUser - Creates a new user in th database using the data sent with API
+      1. API to get all users  - GET http://localhost:8090/getAllUsers -  Displays the user data that is currently available
+      2. API to create a new user for hotel management system - POST http://localhost:8090/createUser - Creates a new user in th database using the data sent with API. CustomerType will be 'c' for external users and 'e' for hotel staff.
       
       
-      Data Format should be - 
-      {
-        "id": 116,
-        "firstName": "3xk",
-        "lastName": "tyson",
-        "email": "tyson@mail.com",
-        "password": "tyson@nypd",
-        "country": "USA",
-        "city": "Manhattan",
-        "address": "1 washington sq. san jose",
-        "zipcode": "95133"
-      }
+            Data Format should be - 
+            
+            {
+              "id": 116,
+              "firstName": "3xk",
+              "lastName": "tyson",
+              "email": "tyson@mail.com",
+              "password": "tyson@nypd",
+              "country": "USA",
+              "city": "Manhattan",
+              "address": "1 washington sq. san jose",
+              "zipcode": "95133",
+              "userType": "c"
+            }
+      
+      3. API to serach for hotels - GET http://localhost:8090/searchHotels?searchkey=sPaRtan - value of searchkey parameter can be replaced with any string. Currently the search API works with country name and hotel name as search key.
+      
 7. If you cant connect to the database that is provided, change it to your local database in application.properties file. Location of the file will be "your-project-location/HotelBooking/src/main/resources"
