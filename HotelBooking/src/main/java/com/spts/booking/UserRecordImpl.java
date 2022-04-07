@@ -22,10 +22,27 @@ public class UserRecordImpl implements IUserRecord{
 	@Override
 	public int addNewUserRecord(User newUser){
 		int result = 0;
+		List<User> testuser = new ArrayList<>();
         String sql = "INSERT INTO user (id, firstName, lastName, email, password, country, cityOrtown, address, zipcode, userType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-        try {
-                result = jdbcTemplate.update(sql, newUser.getId(), newUser.getFirstName(), newUser.getLastName(),
-        		newUser.getEmail(),newUser.getPassword(),newUser.getCountry(),newUser.getCity(),newUser.getAddress(),newUser.getZipcode(), newUser.getUserType());
+        String sql2 = "select * from user where id = ?"; 
+        //if some of the parameters are null you can't add record 
+        
+        if(newUser.getId().toString().equals("") || newUser.getFirstName().equals("") || newUser.getEmail().equals("") 
+        		|| newUser.getPassword().equals("") || newUser.getZipcode().equals("") || newUser.getAddress().equals("") 
+        		|| newUser.getCountry() .equals("") || newUser.getCity().equals("") || newUser.getUserType().equals("")) {
+        	
+        	return 2222;
+        }
+        try {   
+        	    //if userid already exists, throw an error
+        	    testuser = jdbcTemplate.query(sql2, BeanPropertyRowMapper.newInstance(User.class),newUser.getId());
+        	    if(!testuser.isEmpty())
+        	    	result = 1111;
+        	    else {
+	                result = jdbcTemplate.update(sql, newUser.getId(), newUser.getFirstName(), newUser.getLastName(),
+	        		newUser.getEmail(),newUser.getPassword(),newUser.getCountry(),newUser.getCity(),newUser.getAddress(),newUser.getZipcode(), newUser.getUserType());
+                }       
+                
         }
         catch(InvalidResultSetAccessException rs) {
         	throw new RuntimeException(rs);

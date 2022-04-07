@@ -39,11 +39,16 @@ public class UserController{
 	   String json="";
 	   ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 	   int result = userOperations.addNewUserRecord(newUser);
-	   if(result > 0) {
-		   json = "Registration successful. Congratulations! Now you are our valued customer";
-	   }
-	   else {
-		   json = "Something went wrong while creating your account..Please try again";
+	   switch(result) {
+	   case 0 : json = "Something went wrong while creating your account..Please try again";
+	   break;
+	   case 1 : json = "Registration successful. Congratulations! Now you are our valued customer";
+	   break;
+	   case 1111 : json = "Record with this user id already exists";
+	   break;
+	   case 2222 : json = "One of the mandatory values is empty.. please correct";
+	   break;
+	   default: json = "Unknown error";
 	   }
 	   try {
 		json = ow.writeValueAsString(json);
