@@ -1,4 +1,4 @@
-package com.spts.booking;
+package com.spts.signup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,8 @@ import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
+import com.spts.interfaces.IUserRecord;
 
 /**
  *  @author Teja Ganapati Jaddipal - 015957526

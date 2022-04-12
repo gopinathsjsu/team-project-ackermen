@@ -1,4 +1,4 @@
-package com.spts.booking;
+package com.spts.search;
 
 public class Hotels {
 	private int hotel_id;

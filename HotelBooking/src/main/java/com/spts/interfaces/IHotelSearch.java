@@ -1,4 +1,6 @@
-package com.spts.booking;
+package com.spts.interfaces;
+
+import com.spts.search.Hotels;
 
 public interface IHotelSearch {
 	

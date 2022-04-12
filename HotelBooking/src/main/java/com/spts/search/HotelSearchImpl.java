@@ -1,4 +1,4 @@
-package com.spts.booking;
+package com.spts.search;
 
 import java.util.ArrayList;
 import java.util.List;

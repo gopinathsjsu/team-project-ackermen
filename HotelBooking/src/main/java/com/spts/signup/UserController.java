@@ -1,4 +1,4 @@
-package com.spts.booking;
+package com.spts.signup;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

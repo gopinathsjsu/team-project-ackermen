@@ -1,6 +1,8 @@
-package com.spts.booking;
+package com.spts.interfaces;
 
 import java.util.List;
+
+import com.spts.signup.User;
 
 /**
  *  @author Teja Ganapati Jaddipal - 015957526
