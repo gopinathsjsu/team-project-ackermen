@@ -6,9 +6,8 @@ Team Members
 4. Teja Ganapati Jaddipal(SJSU ID - 015957526)
 
 
-## Sprint Tracker link
-#### https://docs.google.com/spreadsheets/d/1mBVjg-GSgh19Kn4imrCRXldSPs7UuZe1aXoF6Y88ehw/edit#gid=164118333
-
+## Jira Link for tracking user stories.
+https://team202-ackerman.atlassian.net/jira/software/projects/AC2/boards/2
 
 
 ## Github Project Board
