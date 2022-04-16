@@ -1,15 +1,15 @@
 const form=document.getElementById('signup');
-const fname=document.getElementById('fname');
-const lname=document.getElementById('lname');
-const email=document.getElementById('email');
+const fname=document.getElementById('first_name');
+const lname=document.getElementById('last_name');
+const bday=document.getElementById('birthday');
 const gender=document.getElementById('gender'); 
-const dob=document.getElementById('dob');
-const marital_status=document.getElementById('marital_status'); 
+const email=document.getElementById('email');
+const password=document.getElementById('password'); 
 const phone=document.getElementById('phone');
-const street=document.getElementById('street');
+const user_type=document.getElementById('user_type');
+const subject=document.getElementById('subject');
 const city=document.getElementById('city');
-const state=document.getElementById('state');
-const zip=document.getElementById('zip');
+const zip=document.getElementById('pin_code');
 
 
 form.addEventListener('submit', e => {
