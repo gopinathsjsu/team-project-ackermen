@@ -15,9 +15,7 @@ const zip=document.getElementById('pin_code');
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
-	formValidation();
-
-
+	signUpValidation();
 
 });
 
