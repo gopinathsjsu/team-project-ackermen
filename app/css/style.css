@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+#picCarousel{
+	margin: auto;
+	width: 90%;
+	
+}
+
 html,
 body {
   font-family: 'Poppins', sans-serif;
