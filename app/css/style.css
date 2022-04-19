@@ -1,21 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-#picCarousel{
-	margin: auto;
-	width: 90%;
-	
+#picCarousel {
+  margin: auto;
+  width: 90%;
 }
 
 html,
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -53,9 +51,9 @@ a {
   height: 30px;
   border-radius: 50%;
   line-height: 30px;
-  background: #FAF3E7;
+  background: #faf3e7;
   text-align: center;
-  color: #CC8C18;
+  color: #cc8c18;
 }
 
 .head img {
@@ -127,15 +125,15 @@ header .head_contact i {
   line-height: 80px;
   text-align: center;
   background: white;
-  color: #CC8C18;
+  color: #cc8c18;
   border-radius: 50%;
   transform: rotate(-45deg);
-  border: 5px solid #ECE3D2;
+  border: 5px solid #ece3d2;
   font-size: 30px;
 }
-.logo{
+.logo {
   display: flex;
-  
+
   height: 4rem;
 }
 header .sticky_logo {
@@ -167,8 +165,7 @@ header.sticky ul li a {
   color: white;
 }
 
-@media only screen and (max-width:768px) {
-
+@media only screen and (max-width: 768px) {
   /*------------head------------*/
   .header .head_contact,
   .logo {
@@ -244,7 +241,10 @@ header.sticky ul li a {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
 }
-
+.home {
+  height: 100vh;
+}
+/*
 .home {
   background-image: url("../image/home.png");
   height: 100vh;
@@ -254,16 +254,16 @@ header.sticky ul li a {
   background-size: cover;
   text-align: center;
 }
-
+*/
 .home h1 {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
   font-size: 150px;
-  color: cadetblue;
+  color: white;
   padding-top: 10%;
 }
 
 .home p {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
   font-size: 50px;
   color: cadetblue;
 }
@@ -323,26 +323,27 @@ button span {
 .heading h5 {
   font-weight: 400;
   letter-spacing: 5px;
-  color: #CC8C18;
+  color: #cc8c18;
   padding-top: 20px;
 }
 
 .heading h2 {
-  color: #24416B;
+  color: #24416b;
   font-size: 45px;
   font-family: serif;
   font-weight: bold;
   margin: 10px 0 20px 0;
 }
 
-.left, .right {
+.left,
+.right {
   width: 50%;
 }
 
 h3 {
   font-size: 35px;
   font-family: serif;
-  color: #24416B;
+  color: #24416b;
   margin-bottom: 20px;
 }
 
@@ -367,11 +368,11 @@ p {
 }
 
 .about .right::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  background: #CC8C18;
+  background: #cc8c18;
   width: 92%;
   height: 61vh;
   z-index: -1;
@@ -379,7 +380,7 @@ p {
 }
 
 .about::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -5%;
   left: 0;
@@ -391,7 +392,7 @@ p {
 }
 
 .about::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5%;
   left: 0;
@@ -422,7 +423,7 @@ p {
   background: white;
   padding: 50px;
   margin-top: 15%;
-  border: 30px solid #F3F3F3;
+  border: 30px solid #f3f3f3;
   border-bottom: none;
 }
 
@@ -453,14 +454,14 @@ p {
   background: white;
   padding: 7px;
   border-radius: 50%;
-  color: #CC8C18;
+  color: #cc8c18;
   box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.05);
   transition: 0.5s;
 }
 
 .owl-nav .owl-next i:hover,
 .owl-nav .owl-prev i:hover {
-  background: #CC8C18;
+  background: #cc8c18;
   color: white;
 }
 
@@ -483,7 +484,7 @@ p {
 
 .wrapper2 i {
   margin: 10px 0 15px 0;
-  color: #CC8C18;
+  color: #cc8c18;
   font-size: 30px;
 }
 
@@ -493,13 +494,13 @@ p {
 
 .wrapper2 span {
   padding: 10px;
-  background: #F5E8D1;
-  color: #CC8C18;
+  background: #f5e8d1;
+  color: #cc8c18;
   border-radius: 50%;
 }
 
 .wrapper2 .box:hover {
-  background: #CC8C18;
+  background: #cc8c18;
   cursor: pointer;
 }
 
@@ -514,7 +515,7 @@ p {
 }
 
 .wrapper2::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -22%;
   left: 0;
@@ -566,10 +567,10 @@ p {
 
 .background::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
@@ -602,7 +603,7 @@ p {
 }
 
 .timer h2 span {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
 }
 
 .clock span {
@@ -638,7 +639,7 @@ p {
 
 .offer .rate i {
   font-size: 13px;
-  color: #CC8C18;
+  color: #cc8c18;
   margin: 10px 10px 20px 0;
 }
 
@@ -677,11 +678,11 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  content: '';
+  content: "";
   width: 85%;
   height: 92%;
   margin: 30px;
-  background: #CC8C18;
+  background: #cc8c18;
   z-index: -1;
 }
 
@@ -724,7 +725,7 @@ p {
 }
 
 .offer2 .box h5 {
-  color: #CC8C18;
+  color: #cc8c18;
   text-align: left;
   font-weight: 400;
   list-style: 5px;
@@ -737,7 +738,7 @@ p {
 }
 
 .offer2 label {
-  color: #CC8C18;
+  color: #cc8c18;
 }
 
 .offer2 .grid {
@@ -761,7 +762,7 @@ p {
 }
 
 .customer i {
-  color: #CC8C18;
+  color: #cc8c18;
   font-size: 13px;
 }
 
@@ -810,7 +811,7 @@ p {
 
 .gallary .overlay {
   position: absolute;
-  content: '';
+  content: "";
   background: rgba(204, 140, 24, 0.73);
   width: 100%;
   height: 100%;
@@ -863,7 +864,7 @@ p {
   left: -12%;
   z-index: 1;
   color: white;
-  background: #CC8C18;
+  background: #cc8c18;
   padding: 20px 50px;
   transform: rotate(-45deg);
   font-size: 14px;
@@ -875,7 +876,7 @@ p {
 
 .blog .box i {
   margin-right: 10px;
-  color: #CC8C18;
+  color: #cc8c18;
 }
 
 .blog .box i label {
@@ -887,7 +888,7 @@ p {
 }
 
 .blog a {
-  color: #CC8C18;
+  color: #cc8c18;
   font-size: 15px;
 }
 
@@ -962,8 +963,7 @@ footer .content {
 }
 
 /*------------footer------------*/
-@media only screen and (max-width:768px) {
-
+@media only screen and (max-width: 768px) {
   /*------------home------------*/
   footer .grid,
   .blog .grid,
@@ -997,7 +997,8 @@ footer .content {
 
   /*------------home------------*/
   /*------------about------------*/
-  .left, .right {
+  .left,
+  .right {
     width: 100%;
   }
 
@@ -1075,7 +1076,7 @@ footer .content {
   /*------------footer------------*/
 }
 
-@media only screen and (max-width:512px) {
+@media only screen and (max-width: 512px) {
   .header.sticky {
     height: 10vh;
   }
@@ -1150,7 +1151,7 @@ footer .content {
 
   .wrapper .item {
     padding: 20px;
-    border: 0 solid #F3F3F3;
+    border: 0 solid #f3f3f3;
   }
 
   .offer2.wrapper {
