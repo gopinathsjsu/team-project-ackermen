@@ -8,6 +8,8 @@
 .font-poppins {
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
 }
+
+/* Validations
 .success input {
   border-color: #09c372;
 }
@@ -18,6 +20,7 @@
 .error {
   color: #ff3860;
 }
+*/
 
 /* ==========================================================================
    #GRID
