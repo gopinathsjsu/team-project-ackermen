@@ -1,17 +1,22 @@
-const form=document.getElementById('signup');
-const fname=document.getElementById('first_name');
-const lname=document.getElementById('last_name');
-const bday=document.getElementById('birthday');
-const gender=document.getElementById('gender'); 
-const email=document.getElementById('email');
-const password=document.getElementById('password'); 
-const phone=document.getElementById('phone');
-const user_type=document.getElementById('user_type');
-const subject=document.getElementById('subject');
-const city=document.getElementById('city');
-const zip=document.getElementById('pin_code');
+var fname = document.signup.first_name.value;
+const lname = document.getElementById("last_name");
+const bday = document.getElementById("birthday");
+const gender = document.getElementById("gender");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const phone = document.getElementById("phone");
+const user_type = document.getElementById("user_type");
+const subject = document.getElementById("subject");
+const city = document.getElementById("city");
+const zip = document.getElementById("pin_code");
 
+function signUpValidation() {
+  if (fname == "") {
+    alert("First name can't be empty");
+  }
+}
 
+/*
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
@@ -165,3 +170,4 @@ const formValidation = () =>
 	}
 	
 }
+*/
