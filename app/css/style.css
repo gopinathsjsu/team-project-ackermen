@@ -243,6 +243,7 @@ header.sticky ul li a {
 }
 .home {
   height: 100vh;
+  max-width: 100%;
 }
 /*
 .home {
@@ -256,13 +257,15 @@ header.sticky ul li a {
 }
 */
 .home h1 {
+  text-align: center;
   font-family: "Great Vibes", cursive;
   font-size: 150px;
-  color: white;
+  color: cadetblue;
   padding-top: 10%;
 }
 
 .home p {
+  text-align: center;
   font-family: "Great Vibes", cursive;
   font-size: 50px;
   color: cadetblue;
@@ -272,6 +275,7 @@ header.sticky ul li a {
   text-align: left;
   color: black;
   margin-top: 7%;
+  display: flex;
 }
 
 .home .box {
@@ -284,7 +288,10 @@ header.sticky ul li a {
 }
 
 input {
-  border: none;
+  border: 1px solid;
+  border-color: #24416b;
+  border-radius: 25px;
+  padding: 10px;
   outline: none;
 }
 
@@ -962,6 +969,13 @@ footer .content {
   border-top: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+.hotel_loc_list {
+  padding: 20px;
+}
+.info_footer i {
+  text-size: 100px;
+  padding: 10px;
+}
 /*------------footer------------*/
 @media only screen and (max-width: 768px) {
   /*------------home------------*/
