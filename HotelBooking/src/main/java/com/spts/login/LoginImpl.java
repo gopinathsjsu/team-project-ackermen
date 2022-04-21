@@ -21,8 +21,9 @@ public class LoginImpl implements ILogin{
 	public User userLoginCheck(String userName, String passWord) {
 		String sql = "select * from user where email = ? and password = ?";  
 		User currentuser = null;
+		String encryptedPassword = getEncryptedPassword(passWord);
 		try{
-			currentuser = loginJdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(User.class),userName,passWord);
+			currentuser = loginJdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(User.class),userName,encryptedPassword);
 		}
 		catch(InvalidResultSetAccessException rs) {
         	throw new RuntimeException(rs);
@@ -31,5 +32,13 @@ public class LoginImpl implements ILogin{
         	throw new RuntimeException(da);
         }
 		return currentuser;
+	}
+	public String getEncryptedPassword(String password) {
+		StringBuffer sb = new StringBuffer();
+		for(char c:password.toCharArray()) {
+			sb.append(c-'a');
+			sb.append('%');
+		}
+		return sb.toString();
 	}
 }
