@@ -25,8 +25,8 @@ public class UserRecordImpl implements IUserRecord{
 	public int addNewUserRecord(User newUser){
 		int result = 0;
 		List<User> testuser = new ArrayList<>();
-        String sql = "INSERT INTO user (id, firstName, lastName, email, password, country, cityOrtown, address, zipcode, userType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-        String sql2 = "select * from user where id = ?"; 
+        String sql = "INSERT INTO user (firstName, lastName, email, password, country, cityOrtown, address, zipcode, userType) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String sql2 = "select * from user where email = ?"; 
         //if some of the parameters are null you can't add record 
         
         if(newUser.getId().toString().equals("") || newUser.getFirstName().equals("") || newUser.getEmail().equals("") 
@@ -37,7 +37,7 @@ public class UserRecordImpl implements IUserRecord{
         }
         try {   
         	    //if userid already exists, throw an error
-        	    testuser = jdbcTemplate.query(sql2, BeanPropertyRowMapper.newInstance(User.class),newUser.getId());
+        	    testuser = jdbcTemplate.query(sql2, BeanPropertyRowMapper.newInstance(User.class),newUser.getEmail());
         	    if(!testuser.isEmpty())
         	    	result = 1111;
         	    else {

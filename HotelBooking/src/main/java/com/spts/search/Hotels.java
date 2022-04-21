@@ -1,24 +1,27 @@
 package com.spts.search;
 
 public class Hotels {
-	private int hotel_id;
-	private String hotel_name;
+	private int hotelId;
+	private String hotelName;
 	private String country;
+	private String city;
 	private String address;
-	private int available_single_rooms;
-	private int available_double_rooms;
-	private int available_suites;
-	public int getHotel_id() {
-		return hotel_id;
+	private int availableSingleRooms;
+	private int availableDoubleRooms;
+	private int availableSuites;
+	private double basePrice;
+	
+	public int getHotelId() {
+		return hotelId;
 	}
-	public void setHotel_id(int hotel_id) {
-		this.hotel_id = hotel_id;
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
 	}
-	public String getHotel_name() {
-		return hotel_name;
+	public String getHotelName() {
+		return hotelName;
 	}
-	public void setHotel_name(String hotel_name) {
-		this.hotel_name = hotel_name;
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
 	public String getCountry() {
 		return country;
@@ -26,30 +29,44 @@ public class Hotels {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getAvailable_single_rooms() {
-		return available_single_rooms;
+	public int getAvailableSingleRooms() {
+		return availableSingleRooms;
 	}
-	public void setAvailable_single_rooms(int available_single_rooms) {
-		this.available_single_rooms = available_single_rooms;
+	public void setAvailableSingleRooms(int availableSingleRooms) {
+		this.availableSingleRooms = availableSingleRooms;
 	}
-	public int getAvailable_double_rooms() {
-		return available_double_rooms;
+	public int getAvailableDoubleRooms() {
+		return availableDoubleRooms;
 	}
-	public void setAvailable_double_rooms(int available_double_rooms) {
-		this.available_double_rooms = available_double_rooms;
+	public void setAvailableDoubleRooms(int availableDoubleRooms) {
+		this.availableDoubleRooms = availableDoubleRooms;
 	}
-	public int getAvailable_suites() {
-		return available_suites;
+	public int getAvailableSuites() {
+		return availableSuites;
 	}
-	public void setAvailable_suites(int available_suites) {
-		this.available_suites = available_suites;
+	public void setAvailableSuites(int availableSuites) {
+		this.availableSuites = availableSuites;
 	}
+	public double getBasePrice() {
+		return basePrice;
+	}
+	public void setBasePrice(double basePrice) {
+		this.basePrice = basePrice;
+	}
+	
+	
 	
 
 }
