@@ -1,6 +1,8 @@
 package com.spts.signup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -24,14 +26,19 @@ public class UserRecordImpl implements IUserRecord{
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
+	private int currentUserId = -1;
 	
+	public int getCurrentUserId() {
+		return currentUserId;
+	}
+	public void setCurrentUserId(int currentUserId) {
+		this.currentUserId = currentUserId;
+	}
 	private static final Logger log = LoggerFactory.getLogger(UserRecordImpl.class);
 	
 	@Override
 	public int addNewUserRecord(User newUser){
 		int result = 0;
-		int currentUserId = -1;
 		List<User> testuser = new ArrayList<>();
 		String encryptedPassword = getEncryptedPassword(newUser.getPassword());
         String sql = "INSERT INTO user (firstName, lastName, email, password, country, city, address, zipcode, usertype) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
@@ -53,11 +60,9 @@ public class UserRecordImpl implements IUserRecord{
         	    else {
 	                result = jdbcTemplate.update(sql, newUser.getFirstName(), newUser.getLastName(),
 	        		newUser.getEmail(),encryptedPassword,newUser.getCountry(),newUser.getCity(),newUser.getAddress(),newUser.getZipcode(), newUser.getUserType());
-	                //SELECT LAST_INSERT_ID(); to get last insert id and return it to user use same thing for booking
-	                currentUserId = jdbcTemplate.queryForObject(sql3, Integer.class);
-	                log.info("newly inserted id = "+currentUserId);
-	                // as soon as you create user, create rewards table entry and add 100 points
-	                // as soon as hotel is booked, based on total price add reward points
+	                int newUserId = jdbcTemplate.queryForObject(sql3, Integer.class);
+	                this.setCurrentUserId(newUserId);
+	                addRewards(newUserId,100);
                 }       
                 
         }
@@ -90,5 +95,18 @@ public class UserRecordImpl implements IUserRecord{
 	        throw new RuntimeException(da);
 	    }
 		return userList;
+	}
+	public void addRewards(int userId,int points) {
+		int result = 0;
+		int rewardPoints = points;
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
+	    Date date = new Date();  
+	    log.info(formatter.format(date));  
+		String addRewardQuery = "insert into rewards(user_id,reward_points,start_date) values(?,?,?)";
+		result = jdbcTemplate.update(addRewardQuery, userId,rewardPoints,formatter.format(date));
+		if(result == 1)
+			log.info("new row added to rewards table");
+		else
+			log.info("error in adding new row to rewards table");
 	}
 }
