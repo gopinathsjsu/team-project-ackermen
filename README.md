@@ -34,7 +34,7 @@ Steps to run the project.
 5. Execute the command "mvn spring-boot:run", the embedded tomacat server will start at port 8090.
 6. Using postman test the APIs - 
       1. API to get all users  - GET http://localhost:8090/getAllUsers -  Displays the user data that is currently available
-      2. API to create a new user for hotel management system - POST http://localhost:8090/createUser - Creates a new user in th database using the data sent with API. CustomerType will be 'c' for external users and 'e' for hotel staff.
+      2. API to create a new user for hotel management system - POST http://localhost:8090/createUser - Creates a new user in th database using the data sent with API. CustomerType will be 'c' for external users, 'a' for admin and 'e' for hotel staff.
       
       
             Data Format should be - 
@@ -53,5 +53,21 @@ Steps to run the project.
             }
       
       3. API to serach for hotels - GET http://localhost:8090/searchHotels?searchkey=sPaRtan - value of searchkey parameter can be replaced with any string. Currently the search API works with country name and hotel name as search key.
+      4. API to create new booking - POST http://localhost:8090/createBooking - creates a new booking row in db with the data sent with API
+
+             No need to send booking id since it will be auto incremented in db and will be returned
+             Data format should be - 
+             {
+                "userId": 2, 
+                "hotelId": 1,
+                "adultCount":4,
+                "childrenCount":2,
+                "checkinDate":"06/05/2022",
+                "checkoutDate":"06/08/2022",
+                "singleroomsBooked":2,
+                "doubleroomsBooked":0,
+                "suitesBooked":1,
+                "bookingEmail":"iloveburgers@bur.com"
+             }
       
-7. If you cant connect to the database that is provided, change it to your local database in application.properties file. Location of the file will be "your-project-location/HotelBooking/src/main/resources"
+7. Everyone can connect to the db now with the details provided in properties file.
