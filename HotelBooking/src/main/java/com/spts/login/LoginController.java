@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spts.misc.Login;
 import com.spts.signup.User;
 
 @RestController
@@ -18,11 +19,11 @@ public class LoginController {
 	@Autowired
 	private LoginImpl newLogin;
 	@PostMapping(value = "/userLogin")
-	public User login(@RequestBody User currentUser, HttpServletRequest request){
+	public User login(@RequestBody Login currentUser, HttpServletRequest request){
 		
 		User loggedInUser = null;
 		try {
-		 loggedInUser = newLogin.userLoginCheck(currentUser.getEmail(), currentUser.getPassword());
+		 loggedInUser = newLogin.userLoginCheck(currentUser.getUserName(), currentUser.getPassword());
 		}
 		catch(Exception e) {
 			throw new RuntimeException(e);

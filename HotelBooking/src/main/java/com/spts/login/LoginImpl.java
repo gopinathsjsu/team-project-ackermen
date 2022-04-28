@@ -1,6 +1,9 @@
 package com.spts.login;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.InvalidResultSetAccessException;
@@ -20,10 +23,10 @@ public class LoginImpl implements ILogin{
 	@Override
 	public User userLoginCheck(String userName, String passWord) {
 		String sql = "select * from user where email = ? and password = ?";  
-		User currentuser = null;
+		List<User> currentuser = new ArrayList<>();
 		String encryptedPassword = getEncryptedPassword(passWord);
 		try{
-			currentuser = loginJdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(User.class),userName,encryptedPassword);
+			currentuser = loginJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(User.class),userName,encryptedPassword);
 		}
 		catch(InvalidResultSetAccessException rs) {
         	throw new RuntimeException(rs);
@@ -31,7 +34,7 @@ public class LoginImpl implements ILogin{
         catch(DataAccessException da) {
         	throw new RuntimeException(da);
         }
-		return currentuser;
+		return currentuser.isEmpty()? new User():currentuser.get(0);
 	}
 	public String getEncryptedPassword(String password) {
 		StringBuffer sb = new StringBuffer();
