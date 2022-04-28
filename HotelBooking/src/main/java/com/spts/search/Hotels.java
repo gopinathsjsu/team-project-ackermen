@@ -9,7 +9,14 @@ public class Hotels {
 	private int availableSingleRooms;
 	private int availableDoubleRooms;
 	private int availableSuites;
-	private double basePrice;
+	private double singlePrice;
+	private double doublePrice;
+	private double suitePrice;
+	/*private double breakfastPrice;
+	private double gymPrice;
+	private double poolPrice;
+	private double parkingPrice;
+	private double allMealsPrice;*/
 	
 	public int getHotelId() {
 		return hotelId;
@@ -59,12 +66,54 @@ public class Hotels {
 	public void setAvailableSuites(int availableSuites) {
 		this.availableSuites = availableSuites;
 	}
-	public double getBasePrice() {
-		return basePrice;
+	public double getSinglePrice() {
+		return singlePrice;
 	}
-	public void setBasePrice(double basePrice) {
-		this.basePrice = basePrice;
+	public void setSinglePrice(double singlePrice) {
+		this.singlePrice = singlePrice;
 	}
+	public double getDoublePrice() {
+		return doublePrice;
+	}
+	public void setDoublePrice(double doublePrice) {
+		this.doublePrice = doublePrice;
+	}
+	public double getSuitePrice() {
+		return suitePrice;
+	}
+	public void setSuitePrice(double suitePrice) {
+		this.suitePrice = suitePrice;
+	}
+	/*public double getBreakfastPrice() {
+		return breakfastPrice;
+	}
+	public void setBreakfastPrice(double breakfastPrice) {
+		this.breakfastPrice = breakfastPrice;
+	}
+	public double getGymPrice() {
+		return gymPrice;
+	}
+	public void setGymPrice(double gymPrice) {
+		this.gymPrice = gymPrice;
+	}
+	public double getPoolPrice() {
+		return poolPrice;
+	}
+	public void setPoolPrice(double poolPrice) {
+		this.poolPrice = poolPrice;
+	}
+	public double getParkingPrice() {
+		return parkingPrice;
+	}
+	public void setParkingPrice(double parkingPrice) {
+		this.parkingPrice = parkingPrice;
+	}
+	public double getAllMealsPrice() {
+		return allMealsPrice;
+	}
+	public void setAllMealsPrice(double allMealsPrice) {
+		this.allMealsPrice = allMealsPrice;
+	}*/
 	
 	
 	

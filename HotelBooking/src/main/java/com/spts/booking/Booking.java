@@ -12,6 +12,9 @@ public class Booking {
 	private int doubleroomsBooked;
 	private int suitesBooked;
 	private String bookingEmail;
+	private double finalPrice;
+	private String bookingStatus;
+	
 	public int getBookingId() {
 		return bookingId;
 	}
@@ -77,6 +80,18 @@ public class Booking {
 	}
 	public void setBookingEmail(String bookingEmail) {
 		this.bookingEmail = bookingEmail;
+	}
+	public double getFinalPrice() {
+		return finalPrice;
+	}
+	public void setFinalPrice(double finalPrice) {
+		this.finalPrice = finalPrice;
+	}
+	public String getBookingStatus() {
+		return bookingStatus;
+	}
+	public void setBookingStatus(String bookingStatus) {
+		this.bookingStatus = bookingStatus;
 	}
 	
 	
