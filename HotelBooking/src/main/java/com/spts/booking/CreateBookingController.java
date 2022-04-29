@@ -36,6 +36,8 @@ public class CreateBookingController {
 	   break;
 	   case 5555 : json = "No rooms available on your selected dates, please try different dates";
 	   break;
+	   case 6666 : json = "Invalid hotel id";
+	   break;
 	   default: json = "Unknown error";
 	   }
 	   try {

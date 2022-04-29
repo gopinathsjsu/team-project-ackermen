@@ -32,14 +32,9 @@ public class LoginController {
 		if (loggedInUser != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", loggedInUser);
-            return loggedInUser;
+            
 	   }
-		else {
-			// throw new exception with error code, please login to continue 
-			User notFoundUser = new User();
-			return notFoundUser;
-			// use jwt and local storage
-		}
+		return loggedInUser;
 	}
 	
 

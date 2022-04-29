@@ -22,11 +22,16 @@ public class LoginImpl implements ILogin{
 	
 	@Override
 	public User userLoginCheck(String userName, String passWord) {
-		String sql = "select * from user where email = ? and password = ?";  
-		List<User> currentuser = new ArrayList<>();
+		String credentialQuery = "select * from user where email = ? and password = ?";  
+		List<User> currentUser = new ArrayList<>();
 		String encryptedPassword = getEncryptedPassword(passWord);
 		try{
-			currentuser = loginJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(User.class),userName,encryptedPassword);
+			currentUser = loginJdbcTemplate.query(credentialQuery, BeanPropertyRowMapper.newInstance(User.class),userName,encryptedPassword);
+			// if all fields are null then the username and password does not match
+			if(currentUser.isEmpty()) {
+				return new User();
+			}
+				
 		}
 		catch(InvalidResultSetAccessException rs) {
         	throw new RuntimeException(rs);
@@ -34,7 +39,8 @@ public class LoginImpl implements ILogin{
         catch(DataAccessException da) {
         	throw new RuntimeException(da);
         }
-		return currentuser.isEmpty()? new User():currentuser.get(0);
+		
+		return currentUser.get(0);
 	}
 	public String getEncryptedPassword(String password) {
 		StringBuffer sb = new StringBuffer();

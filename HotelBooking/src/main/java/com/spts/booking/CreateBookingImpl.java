@@ -20,6 +20,7 @@ import com.spts.helper.CalculateFinalPrices;
 import com.spts.helper.CheckRoomAvailability;
 import com.spts.helper.UpdateRoomAvailability;
 import com.spts.interfaces.ICreateBooking;
+import com.spts.search.Hotels;
 import com.spts.signup.User;
 
 @Component
@@ -47,7 +48,9 @@ public class CreateBookingImpl implements ICreateBooking {
 	
 	public int makeNewReservation(Booking newBooking) {
 		List<User> testuser = new ArrayList<>();
+		List<Hotels> testhotel = new ArrayList<>();
 		String userDetailsQuery = "select * from user where id = ?"; 
+		String hotelDetailsQuery = "select * from hotels where hotel_id = ?";
 		String currentBookingIdQuery = "SELECT LAST_INSERT_ID()";
 		
 		double finalPrice = 0;
@@ -65,10 +68,24 @@ public class CreateBookingImpl implements ICreateBooking {
 			return 3333;
 		//check if the provided user id is valid or not
 		try {   
-    	    //if userid already exists, throw an error
+    	    //if userid is not valid, throw an error
     	    testuser = jdbcTemplate.query(userDetailsQuery, BeanPropertyRowMapper.newInstance(User.class),newBooking.getUserId());
     	    if(testuser.isEmpty())
     	    	return 4444;     
+            
+	    }
+	    catch(InvalidResultSetAccessException rs) {
+	    	throw new RuntimeException(rs);
+	    }
+	    catch(DataAccessException da) {
+	    	throw new RuntimeException(da);
+	    }
+		//check if selected hotel is valid?
+		try {   
+    	    //if hotelid is not valid, throw an error
+			testhotel = jdbcTemplate.query(hotelDetailsQuery, BeanPropertyRowMapper.newInstance(Hotels.class),newBooking.getHotelId());
+    	    if(testhotel.isEmpty())
+    	    	return 6666;     
             
 	    }
 	    catch(InvalidResultSetAccessException rs) {
