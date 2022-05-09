@@ -12,6 +12,28 @@ public class Booking {
 	private int doubleroomsBooked;
 	private int suitesBooked;
 	private String bookingEmail;
+	
+	public Booking() {
+		
+	}
+	public Booking(int bookingId, int userId, int hotelId, int adultCount, int childrenCount, String checkinDate,
+			String checkoutDate, int singleroomsBooked, int doubleroomsBooked, int suitesBooked, String bookingEmail,
+			double finalPrice, String bookingStatus) {
+		super();
+		this.bookingId = bookingId;
+		this.userId = userId;
+		this.hotelId = hotelId;
+		this.adultCount = adultCount;
+		this.childrenCount = childrenCount;
+		this.checkinDate = checkinDate;
+		this.checkoutDate = checkoutDate;
+		this.singleroomsBooked = singleroomsBooked;
+		this.doubleroomsBooked = doubleroomsBooked;
+		this.suitesBooked = suitesBooked;
+		this.bookingEmail = bookingEmail;
+		this.finalPrice = finalPrice;
+		this.bookingStatus = bookingStatus;
+	}
 	private double finalPrice;
 	private String bookingStatus;
 	
