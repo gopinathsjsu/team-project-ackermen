@@ -50,7 +50,7 @@
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all" />
 
-    <script src="signup-validations.js"></script>
+    
   </head>
 
   <body>
@@ -95,7 +95,7 @@
         <div class="card card-4">
           <div class="card-body">
             <h2 class="title">Join SPTS Rewards</h2>
-            <form method="post" name="signup" onSubmit="signUpValidation()">
+            <form method="POST" name="signup" id="signup">
               <div class="row row-space">
                 <div class="col-2">
                   <div class="input-group">
@@ -115,6 +115,7 @@
                       class="input--style-4"
                       type="text"
                       name="last_name"
+                      id="last_name"
                     />
                   </div>
                 </div>
@@ -128,6 +129,7 @@
                         class="input--style-4 js-datepicker"
                         type="text"
                         name="birthday"
+                        id="birthday"
                       />
                       <i
                         class="zmdi zmdi-calendar-note input-icon js-btn-calendar"
@@ -157,7 +159,7 @@
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">Email</label>
-                    <input class="input--style-4" type="email" name="email" />
+                    <input class="input--style-4" type="email" name="email" id="email" />
                   </div>
                 </div>
                 <div class="col-2">
@@ -167,6 +169,7 @@
                       class="input--style-4"
                       type="password"
                       name="password"
+                      id="password"
                     />
                   </div>
                 </div>
@@ -175,24 +178,23 @@
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">Phone Number</label>
-                    <input class="input--style-4" type="text" name="phone" />
+                    <input class="input--style-4" type="text" name="phone" id="phone" />
                   </div>
                 </div>
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">User Type</label>
                     <div class="p-t-10">
-                      <label class="radio-container m-r-45"
-                        >Customer
+                      <label class="radio-container m-r-45">Customer
                         <input
                           type="radio"
                           checked="checked"
                           name="user_type"
+                          id="user_type"
                         />
                         <span class="checkmark"></span>
                       </label>
-                      <label class="radio-container"
-                        >Employee
+                      <label class="radio-container">Employee
                         <input type="radio" name="user_type" />
                         <span class="checkmark"></span>
                       </label>
@@ -200,32 +202,43 @@
                   </div>
                 </div>
               </div>
-              <div class="input-group">
-                <label class="label">Country</label>
-                <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="subject">
-                    <option disabled="disabled" selected="selected">
-                      Choose option
-                    </option>
-                    <option>Country 1</option>
-                    <option>Country 2</option>
-                    <option>Country 3</option>
-                  </select>
-                  <div class="select-dropdown"></div>
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Country</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                      <select name="subject" id="subject">
+                        <option disabled="disabled" selected="selected">
+                          Choose option
+                        </option>
+                        <option>USA</option>
+                        <option>India</option>
+                        <option>Canada</option>
+                      </select>
+                      <div class="select-dropdown"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Address (Street)</label>
+                    <input class="input--style-4" type="text" name="address" id="address"/>
+                  </div>
                 </div>
               </div>
+             
 
               <div class="row row-space">
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">City/Town</label>
-                    <input class="input--style-4" type="text" name="city" />
+                    <input class="input--style-4" type="text" name="city" id="city"/>
                   </div>
                 </div>
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">Postal Code</label>
-                    <input class="input--style-4" type="text" name="pin_code" />
+                    <input class="input--style-4" type="text" name="pin_code" id="pin_code"/>
                   </div>
                 </div>
               </div>
@@ -249,6 +262,7 @@
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
+    <script src="signup-validations.js"></script>
   </body>
   <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
