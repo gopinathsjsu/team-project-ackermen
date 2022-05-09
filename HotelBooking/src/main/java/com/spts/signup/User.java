@@ -20,6 +20,21 @@ public class User implements Serializable{
     private String userType;
     
     
+	public User(Integer id, String firstName, String lastName, String email, String password, String country,
+			String city, String address, String zipcode, String userType) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.country = country;
+		this.city = city;
+		this.address = address;
+		this.zipcode = zipcode;
+		this.userType = userType;
+	}
+
 	public User() {
    
     }
