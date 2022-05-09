@@ -11,6 +11,24 @@ public class Hotels {
 	private int availableSuites;
 	private double singlePrice;
 	private double doublePrice;
+	public Hotels(int hotelId, String hotelName, String country, String city, String address, int availableSingleRooms,
+			int availableDoubleRooms, int availableSuites, double singlePrice, double doublePrice, double suitePrice) {
+		super();
+		this.hotelId = hotelId;
+		this.hotelName = hotelName;
+		this.country = country;
+		this.city = city;
+		this.address = address;
+		this.availableSingleRooms = availableSingleRooms;
+		this.availableDoubleRooms = availableDoubleRooms;
+		this.availableSuites = availableSuites;
+		this.singlePrice = singlePrice;
+		this.doublePrice = doublePrice;
+		this.suitePrice = suitePrice;
+	}
+	public Hotels() {
+		
+	}
 	private double suitePrice;
 	/*private double breakfastPrice;
 	private double gymPrice;
