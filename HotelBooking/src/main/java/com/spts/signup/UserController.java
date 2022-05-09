@@ -42,7 +42,7 @@ public class UserController{
 	   switch(result) {
 	   case 0 : json = "Something went wrong while creating your account..Please try again";
 	   break;
-	   case 1 : json = "Registration successful. Congratulations! Now you are our valued customer, your unique user id is-"+userOperations.getCurrentUserId();
+	   case 1 : json = "Registration successful. Congratulations! your unique user id is-"+userOperations.getCurrentUserId();
 	   break;
 	   case 1111 : json = "Record with this user id already exists";
 	   break;
