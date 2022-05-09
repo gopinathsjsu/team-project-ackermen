@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LogOutController {
 	
-	/*@PostMapping(value = "/logout")
-	public String login(@RequestBody User currentUser, HttpServletRequest request) throws Exception{
-		
-            if(request.getSession().getAttribute(currentUser.getEmail()) != null)
-            	request.getSession()
-		return "Log out success";
-	}*/
+	@PostMapping(value = "/logout")
+    public String logout(HttpServletRequest request) throws Exception {
+        if (request.getSession().getAttribute("user") != null) request.getSession().removeAttribute("user");
+        return "Log out success";
+    }
 
 }

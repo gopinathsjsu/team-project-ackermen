@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class LoginController {
 	@Autowired
 	private LoginImpl newLogin;
 	@PostMapping(value = "/userLogin")
-	public User login(@RequestBody Login currentUser, HttpServletRequest request){
+	public ResponseEntity<Object> login(@RequestBody Login currentUser, HttpServletRequest request){
 		
 		User loggedInUser = null;
 		try {
@@ -32,9 +33,10 @@ public class LoginController {
 		if (loggedInUser != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", loggedInUser);
-            
-	   }
-		return loggedInUser;
+            return ResponseEntity.ok(loggedInUser);
+        } else {
+            return ResponseEntity.status(401).body("Failed to login!");
+        }
 	}
 	
 

@@ -29,7 +29,7 @@ public class LoginImpl implements ILogin{
 			currentUser = loginJdbcTemplate.query(credentialQuery, BeanPropertyRowMapper.newInstance(User.class),userName,encryptedPassword);
 			// if all fields are null then the username and password does not match
 			if(currentUser.isEmpty()) {
-				return new User();
+				return null;
 			}
 				
 		}
