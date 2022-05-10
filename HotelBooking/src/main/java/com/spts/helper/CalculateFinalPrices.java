@@ -53,17 +53,22 @@ public class CalculateFinalPrices {
 		
 		int discount = -1;
 		String startDate ="";
+		int rewardPoints = 0;
 		SimpleDateFormat formatter = new SimpleDateFormat(DATEFORMAT);  
 	    Date date = new Date();  
 		String startDateQuery = "select start_date from rewards where user_id = ?";
+		String rewardPointQuery = "select reward_points from rewards where user_id = ?";
 		startDate = jdbcTemplate.queryForObject(startDateQuery, String.class,newBooking.getUserId());
+		rewardPoints = jdbcTemplate.queryForObject(rewardPointQuery, Integer.class,newBooking.getUserId());
 		int loyaltyDays = checkDuration(startDate,formatter.format(date));
-		if(loyaltyDays > 1825)
+			if(rewardPoints > 1000)
+			discount = 7;
+			else if(rewardPoints>=500 && rewardPoints<1000)
 			discount = 5;
-		else if(loyaltyDays>=365 && loyaltyDays<=1825)
-			discount = 2;
-		else
-			discount = 0;
+			else if(rewardPoints>=100 && rewardPoints<500)
+			discount = 4;
+			else
+			discount = 1;
 		return discount;
 	}
 	
