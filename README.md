@@ -14,8 +14,8 @@ https://team202-ackerman.atlassian.net/jira/software/projects/AC2/boards/2
 ## https://github.com/gopinathsjsu/team-project-ackermen/projects
 
 ## Sprint-wise burn down charts
-<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin: 0 auto; width: 500px">
-
+<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
+<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
 ## Image sources
 
 https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
