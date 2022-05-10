@@ -84,18 +84,6 @@ public class UserRecordImpl implements IUserRecord{
 		}
 		return sb.toString();
 	}
-	@Override
-	public List<User> getUserRecords(){
-		String sql = "select * from user";
-		List<User> userList = new ArrayList<>();
-		try {
-		  userList = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(User.class)); 
-		}
-		catch(DataAccessException da) {
-	        throw new RuntimeException(da);
-	    }
-		return userList;
-	}
 	public void addRewards(int userId,int points) {
 		int result = 0;
 		int rewardPoints = points;

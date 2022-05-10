@@ -11,6 +11,5 @@ import com.spts.signup.User;
 public interface IUserRecord {
 	
 	public abstract int addNewUserRecord(User user);
-	public abstract List<User> getUserRecords();
 
 }

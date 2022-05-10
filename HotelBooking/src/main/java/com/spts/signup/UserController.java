@@ -22,17 +22,6 @@ public class UserController{
 	//private static final Logger log = LoggerFactory.getLogger(UserController.class);
     @Autowired
     private UserRecordImpl userOperations;
-	@GetMapping(value = "/getAllUsers", produces = "application/json")
-	public String greeting() {
-		String json="";
-		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		try {
-			json = ow.writeValueAsString(userOperations.getUserRecords());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		    return json;
-		}
 	
    @PostMapping(value = "/createUser", consumes = "application/json", produces = "application/json")
 	public String createPerson(@RequestBody User newUser){
