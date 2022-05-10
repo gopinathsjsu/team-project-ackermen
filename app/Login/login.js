@@ -26,6 +26,7 @@ if (form) {
             console.log(response);
 
             if (response.email == email) {
+                localStorage.setItem("email", response.email);
                 window.location.href = "../searchHotels/hotels.html";
             } else {
                 alert(response);
