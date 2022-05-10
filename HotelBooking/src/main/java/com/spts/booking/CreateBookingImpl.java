@@ -44,17 +44,29 @@ public class CreateBookingImpl implements ICreateBooking {
 	private static final  String OUTPUTDATE = "yyyy-MM-dd";
 	private static final String INPUTDATE = "MM/dd/yyyy";
 	
+	private double finalPrice = 0;
+	
+	public double getFinalPrice() {
+		return finalPrice;
+	}
+
+	public void setFinalPrice(double finalPrice) {
+		this.finalPrice = finalPrice;
+	}
+
 	private boolean roomsNotAvailable = false;
 	
-	public int makeNewReservation(Booking newBooking) {
+	public int makeNewReservation(Booking newBooking,User user) {
 		List<User> testuser = new ArrayList<>();
 		List<Hotels> testhotel = new ArrayList<>();
 		String userDetailsQuery = "select * from user where id = ?"; 
 		String hotelDetailsQuery = "select * from hotels where hotel_id = ?";
 		String currentBookingIdQuery = "SELECT LAST_INSERT_ID()";
 		
-		double finalPrice = 0;
-		
+		if(user.getId() != newBooking.getUserId())
+			return 7777;
+		if(!user.getEmail().equals(newBooking.getBookingEmail()))
+			return 8888;
 		int code = -1;
 		//check for number of days, can't be more than 7
 		int duration = prices.checkDuration(newBooking.getCheckinDate(),newBooking.getCheckoutDate());
@@ -108,7 +120,8 @@ public class CreateBookingImpl implements ICreateBooking {
 			checkinDate = inputDateFormat.parse(newBooking.getCheckinDate());
 			checkoutDate = inputDateFormat.parse(newBooking.getCheckoutDate());
 		} catch (ParseException e) {
-			e.printStackTrace();
+			code = 9999;
+			return code;
 		}
 		
 		String addNewBookingQuery = "INSERT INTO booking (user_id, hotel_id, booking_email, adult_count, children_count, check_in_date, check_out_date, "

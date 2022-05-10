@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +22,8 @@ public class ModifyReservationController{
 	
 	private final String notLoggedIn = "Must be logged in.";
 	
-	@DeleteMapping(value = "/deleteBooking")
-	public String deleteBooking(@RequestBody Booking booking, HttpServletRequest request) {
+	@DeleteMapping(value = "/deleteBooking/{bookingId}")
+	public String deleteBooking(@PathVariable int bookingId, HttpServletRequest request) {
 		
 		User user = (User) request.getSession().getAttribute("user");
         if (user == null) return notLoggedIn;
@@ -30,7 +31,7 @@ public class ModifyReservationController{
 		String json="";
 		int code = -2;
 		   ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		code = modifyReservation.deleteBooking(booking,user);
+		code = modifyReservation.deleteBooking(bookingId,user);
 		switch(code) {
 		   case 1111 : json = "Booking cancelled succesfully";
 		   break;
@@ -53,39 +54,43 @@ public class ModifyReservationController{
 	}
 	
 	@PutMapping(value = "/changeBooking")
-	public String changeBooking(@RequestBody Booking newBooking, HttpServletRequest request) {
+	public Booking changeBooking(@RequestBody Booking newBooking, HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
-        if (user == null) return notLoggedIn;
+        if (user == null) {
+           newBooking.setStatusMessage(notLoggedIn);
+     	   return newBooking;
+        }
 		String json="";
 		int code = -2;
 		   ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 		 code  = modifyReservation.changeBooking(newBooking,user);
 		 switch(code) {
 		 
-		 case 0: json = "Problem in modifying booking, try again";
+		 case 0: newBooking.setStatusMessage("Problem in modifying booking, try again");
 		 break;
-		 case 1111: json = "Stay duration more than 7 days, cant book";
+		 case 1111: newBooking.setStatusMessage("Stay duration more than 7 days, cant book");
 		 break;
-		 case 2222: json = "Booking email can't be null";
+		 case 2222: newBooking.setStatusMessage("Booking email can't be null");
 		 break;
-		 case 3333: json = "One of the mandatory values in null";
+		 case 3333: newBooking.setStatusMessage("One of the mandatory values in null");
 		 break;
-		 case 4444 : json = "No booking record exists with provided booking id, Please check";
+		 case 4444 : newBooking.setStatusMessage("No booking record exists with provided booking id, Please check");
 	     break;
-	     case 5555 : json = "Invalid user is, Please check";
+	     case 5555 : newBooking.setStatusMessage("Invalid user is, Please check");
 	     break;
-	     case 6666 : json = "Permission denied to delete booking!";
+	     case 6666 : newBooking.setStatusMessage("Permission denied to delete booking!");
 		 break;
-		 case 1: json = "Booking modified successfully";
+		 case 1: newBooking.setStatusMessage("Booking modified successfully");
+		         newBooking.setFinalPrice(modifyReservation.getFinalPrice());
 		 break;
-		 default: json = "Unknown error";
+		 default: newBooking.setStatusMessage("Unknown error");
 		 }
 		try {
 			json = ow.writeValueAsString(json);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-		    return json;
+		    return newBooking;
 	}
 
 }

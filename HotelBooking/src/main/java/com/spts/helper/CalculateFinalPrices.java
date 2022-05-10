@@ -24,6 +24,15 @@ public class CalculateFinalPrices {
 	private static final  String DATEFORMAT = "MM/dd/yyyy";
 	private static final  String SQLDATEFORMAT = "yyyy-MM-dd";
 	private List<Double> roomBasePrices = new ArrayList<>();
+	private int frPoints;
+	
+	public int getFrPoints() {
+		return frPoints;
+	}
+
+	public void setFrPoints(int frPoints) {
+		this.frPoints = frPoints;
+	}
 	private static final Logger log = LoggerFactory.getLogger(CalculateFinalPrices.class);
 	
 	public double calculatePrice(Booking newBooking) {
@@ -171,6 +180,7 @@ public class CalculateFinalPrices {
 		String getPointsQuery = "select reward_points from rewards where user_id = ?";
 		int currentPoints = jdbcTemplate.queryForObject(getPointsQuery, Integer.class,userId);
 		int updatedPoints = currentPoints+extraPoints;
+		this.setFrPoints(updatedPoints);
 		String updateRewardQuery = "update rewards set reward_points = ? where user_id = ?";
 		result = jdbcTemplate.update(updateRewardQuery, updatedPoints,userId);
 		if(result == 1)

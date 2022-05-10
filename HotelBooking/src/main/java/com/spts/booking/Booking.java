@@ -12,7 +12,21 @@ public class Booking {
 	private int doubleroomsBooked;
 	private int suitesBooked;
 	private String bookingEmail;
+	private String statusMessage;
+	private int rewardPoints;
 	
+	public int getRewardPoints() {
+		return rewardPoints;
+	}
+	public void setRewardPoints(int rewardPoints) {
+		this.rewardPoints = rewardPoints;
+	}
+	public String getStatusMessage() {
+		return statusMessage;
+	}
+	public void setStatusMessage(String statusMessage) {
+		this.statusMessage = statusMessage;
+	}
 	public Booking() {
 		
 	}

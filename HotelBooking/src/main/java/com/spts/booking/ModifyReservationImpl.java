@@ -35,26 +35,35 @@ public class ModifyReservationImpl implements IModifyReservation {
 	private static final String INPUTDATE = "MM/dd/yyyy";
 	
 	private static final Logger log = LoggerFactory.getLogger(ModifyReservationImpl.class);
-	//check if booking id and user id is valid
+	private double finalPrice;
 	
-	public int deleteBooking(Booking booking, User user) {
+	public double getFinalPrice() {
+		return finalPrice;
+	}
+
+	public void setFinalPrice(double finalPrice) {
+		this.finalPrice = finalPrice;
+	}
+
+	public int deleteBooking(int bookingId, User user) {
 		int code = -1;
+		List<Booking> booking = new ArrayList<>();
 		//check if user has permission to delete
-		if (booking.getUserId() != user.getId())
+		booking = isValidBooking(bookingId);
+		if(booking.isEmpty())
+			return 4444;
+		if (booking.get(0).getUserId() != user.getId())
             return 3333;
 		//check if mandatory values are null
-		if(booking.getUserId() == 0 || booking.getHotelId()==0 || booking.getBookingId() ==0)
+		if(booking.get(0).getUserId() == 0 || booking.get(0).getHotelId()==0 || booking.get(0).getBookingId() ==0)
 			return 5555;
 		//check if booking id is valid or not
-		boolean isValidBooking = false;
-		isValidBooking = isValidBooking(booking.getBookingId());
-		if(!isValidBooking)
-			return 4444;
-		String deleteQuery = "DELETE FROM booking WHERE booking_id = "+booking.getBookingId();
+		
+		String deleteQuery = "DELETE FROM booking WHERE booking_id = "+bookingId;
 		modifyTemplate.execute(deleteQuery);
 		deleteQuery = "select * from booking where booking_id = ?";
-		List<Booking> testBooking  = modifyTemplate.query(deleteQuery, BeanPropertyRowMapper.newInstance(Booking.class),booking.getBookingId());
-		available.updateRooms(booking,"Delete");
+		List<Booking> testBooking  = modifyTemplate.query(deleteQuery, BeanPropertyRowMapper.newInstance(Booking.class),bookingId);
+		available.updateRooms(booking.get(0),"Delete");
 		if(testBooking.isEmpty())
 		 code = 1111;
 		else
@@ -64,6 +73,7 @@ public class ModifyReservationImpl implements IModifyReservation {
 	
 	public int changeBooking(Booking newBooking, User user) {
 		int code = -1;
+		List<Booking> booking = new ArrayList<>();
 		//check basic conditions
 		//check if user has permission to delete
 		if (newBooking.getUserId() != user.getId())
@@ -80,9 +90,8 @@ public class ModifyReservationImpl implements IModifyReservation {
 			return 3333;
 		//check avialability
 		//check if booking id is valid or not
-		boolean isValidBooking = false;
-		isValidBooking = isValidBooking(newBooking.getBookingId());
-		if(!isValidBooking)
+		booking = isValidBooking(newBooking.getBookingId());
+		if(booking.isEmpty())
 			return 4444;
 		//check if user id is valid or not
 		boolean isValidUser = false;
@@ -91,6 +100,7 @@ public class ModifyReservationImpl implements IModifyReservation {
 			return 5555;
 		//calculate price
 		double price = prices.calculatePrice(newBooking);
+		this.setFinalPrice(price);
 		//update rooms
 		available.updateRooms(newBooking,"Modify");
 		DateFormat inputDateFormat = new SimpleDateFormat(INPUTDATE);
@@ -133,14 +143,12 @@ public class ModifyReservationImpl implements IModifyReservation {
 		return true;
 	}
 
-	public boolean isValidBooking(int bookingId) {
+	public List<Booking> isValidBooking(int bookingId) {
 		List<Booking> testBooking = new ArrayList<>();
 		String userDetailsQuery = "select * from booking where booking_id = ?";
 		try {   
     	    //if booking id is invalid, throw an error
-			testBooking = modifyTemplate.query(userDetailsQuery, BeanPropertyRowMapper.newInstance(Booking.class),bookingId);
-    	    if(testBooking.isEmpty())
-    	    	return false;     
+			testBooking = modifyTemplate.query(userDetailsQuery, BeanPropertyRowMapper.newInstance(Booking.class),bookingId);    
             
 	    }
 	    catch(InvalidResultSetAccessException rs) {
@@ -149,7 +157,7 @@ public class ModifyReservationImpl implements IModifyReservation {
 	    catch(DataAccessException da) {
 	    	throw new RuntimeException(da);
 	    }
-		return true;
+		return testBooking;
 	}
 
 }
