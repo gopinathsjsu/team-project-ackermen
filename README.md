@@ -13,6 +13,9 @@ https://team202-ackerman.atlassian.net/jira/software/projects/AC2/boards/2
 ## Github Project Board
 ## https://github.com/gopinathsjsu/team-project-ackermen/projects
 
+## Sprint-wise burn down charts
+<img src="/BurnDownCharts/Sprint_1.jpg" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart">
+
 ## Image sources
 
 https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
