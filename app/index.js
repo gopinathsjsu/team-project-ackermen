@@ -31,7 +31,7 @@ if (form) {
         localStorage.setItem("email", response.email);
         localStorage.setItem("userId", response.id);
         localStorage.setItem("user", JSON.stringify(response));
-        window.location.href = "../searchHotels/hotels.html";
+        window.location.href = "./searchHotels/hotels.html"
       } else {
         alert(response);
       }

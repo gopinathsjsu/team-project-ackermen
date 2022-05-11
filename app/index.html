@@ -17,25 +17,6 @@
 </head>
 
 <body>
-    <!-- <section class="head">
-    <div class="container flex1">
-      <div class="scoial">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-youtube"></i>
-      </div>
-      <div class="logo">
-        <img src="./StaticResources/logo.png" alt="">
-      </div>
-      <div class="address">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>205 Fida Walinton, Tongo Street Front, USA</span>
-      </div>
-    </div>
-  </section> -->
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -161,21 +142,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="POST" name="login" id="login">
                         <div class="mb-3">
                             <label for="login-email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="login-password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="login-password">
+                            <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="remember-me-checkbox">
                             <label class="form-check-label" for="remember-me-checkbox">Remember me!</label>
                         </div>
                         <button type="submit" id="login-button" class="btn btn-primary">Login</button>
-
                     </form>
                     <div class="mb-3">
                         <p> Not a member? <a href="./Signup/signup.html">SignUp</a></p>
@@ -184,7 +164,7 @@
             </div>
         </div>
     </div>
-
+    <script src="./index.js"></script>
 
     <script>
         const hamburger = document.querySelector(".hamburger");
