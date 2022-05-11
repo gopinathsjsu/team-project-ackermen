@@ -15,13 +15,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.spts.booking.Booking;
+import java.text.DateFormat;
 
 @Component
 public class CalculateFinalPrices {
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private static final  String DATEFORMAT = "MM/dd/yyyy";
+	private static final  String DATEFORMAT = "yyyy-MM-dd";
 	private static final  String SQLDATEFORMAT = "yyyy-MM-dd";
 	private List<Double> roomBasePrices = new ArrayList<>();
 	private List<Double> amenityPrices = new ArrayList<>();
@@ -156,10 +157,19 @@ public class CalculateFinalPrices {
 		float tempPrice = 0;
 		boolean isWeekend = false;
 		Random random = new Random();
-		SimpleDateFormat formatter = new SimpleDateFormat(DATEFORMAT);
-	    int startDate = Integer.parseInt(checkInDate.substring(3, 5));
-	    int endDate = Integer.parseInt(checkInDate.substring(3, 5));
-	    int startMonth = Integer.parseInt(checkInDate.substring(0, 2));
+		DateFormat formatter = new SimpleDateFormat(DATEFORMAT);
+		Date endDateObject = null;
+		Date startDateObject = null;
+		try {
+			 endDateObject = formatter.parse(checkOutDate);
+			 startDateObject = formatter.parse(checkInDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		int startDate = startDateObject.getDate();
+	    int endDate = endDateObject.getDate();
+	    int startMonth = startDateObject.getMonth();
 		//check summer
 		if(startMonth == 5 || startMonth == 6 || startMonth ==7)
 			tempPrice = tempPrice + (20+random.nextInt(10));

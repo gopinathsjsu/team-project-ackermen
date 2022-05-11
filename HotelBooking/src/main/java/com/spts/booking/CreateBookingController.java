@@ -26,12 +26,14 @@ public class CreateBookingController {
 	private final String notLoggedIn = "Must be logged in.";
 	
 	@PostMapping(value = "/createBooking", consumes = "application/json", produces = "application/json")
-	public Booking createNewBooking(@RequestBody Booking newBooking, HttpServletRequest request){
-	   User user = (User) request.getSession().getAttribute("user");
+	public Booking createNewBooking(@RequestBody BookingUser booking, HttpServletRequest request){
+	   User user = booking.getUser();
+	   Booking newBooking = booking.getNewBooking();
        if (user == null) {
     	   newBooking.setStatusMessage(notLoggedIn);
     	   return newBooking;
        }
+
 	   String json="";
 	   ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
 	   int result = createBooking.makeNewReservation(newBooking,user);

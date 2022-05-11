@@ -11,16 +11,8 @@ public class Hotels {
 	private int availableSuites;
 	private double singlePrice;
 	private double doublePrice;
-	private double suitePrice;
-	private double pool;
-	private double gym;
-	private double parking;
-	private double meals;
-	private double breakfast;
-	
 	public Hotels(int hotelId, String hotelName, String country, String city, String address, int availableSingleRooms,
-			int availableDoubleRooms, int availableSuites, double singlePrice, double doublePrice, double suitePrice,
-			double pool, double gym, double parking, double meals, double breakfast) {
+			int availableDoubleRooms, int availableSuites, double singlePrice, double doublePrice, double suitePrice) {
 		super();
 		this.hotelId = hotelId;
 		this.hotelName = hotelName;
@@ -33,45 +25,16 @@ public class Hotels {
 		this.singlePrice = singlePrice;
 		this.doublePrice = doublePrice;
 		this.suitePrice = suitePrice;
-		this.pool = pool;
-		this.gym = gym;
-		this.parking = parking;
-		this.meals = meals;
-		this.breakfast = breakfast;
-	}
-	public double getPool() {
-		return pool;
-	}
-	public void setPool(double pool) {
-		this.pool = pool;
-	}
-	public double getGym() {
-		return gym;
-	}
-	public void setGym(double gym) {
-		this.gym = gym;
-	}
-	public double getParking() {
-		return parking;
-	}
-	public void setParking(double parking) {
-		this.parking = parking;
-	}
-	public double getMeals() {
-		return meals;
-	}
-	public void setMeals(double meals) {
-		this.meals = meals;
-	}
-	public double getBreakfast() {
-		return breakfast;
-	}
-	public void setBreakfast(double breakfast) {
-		this.breakfast = breakfast;
 	}
 	public Hotels() {
 		
 	}
+	private double suitePrice;
+	/*private double breakfastPrice;
+	private double gymPrice;
+	private double poolPrice;
+	private double parkingPrice;
+	private double allMealsPrice;*/
 	
 	public int getHotelId() {
 		return hotelId;

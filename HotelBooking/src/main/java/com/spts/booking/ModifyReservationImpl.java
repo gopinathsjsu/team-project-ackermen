@@ -113,9 +113,9 @@ public class ModifyReservationImpl implements IModifyReservation {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		String addNewBookingQuery = "update booking set adult_count = ?, children_count = ?, check_in_date = ?, check_out_date = ?,single_rooms_booked = ?, double_rooms_booked = ?,suites_booked = ?,final_price = ?, booking_status = ?,daily_con_bf = ?,gym = ?,pool= ?,parking = ?,meals = ? where booking_id = ?";
+		String addNewBookingQuery = "update booking set adult_count = ?, children_count = ?, check_in_date = ?, check_out_date = ?,single_rooms_booked = ?, double_rooms_booked = ?,suites_booked = ?,final_price = ?, booking_status = ? where booking_id = ?";
 		int result = modifyTemplate.update(addNewBookingQuery,newBooking.getAdultCount(),newBooking.getChildrenCount(),outputDateFormat.format(checkinDate),outputDateFormat.format(checkoutDate),newBooking.getSingleroomsBooked(),
-				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),price,"Upcoming",newBooking.getBreakfast(),newBooking.getPool(),newBooking.getGym(),newBooking.getParking(),newBooking.getMeals(),newBooking.getBookingId());
+				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),price,"Upcoming",newBooking.getBookingId());
 		
 		if(result == 1)
 			code = 1;

@@ -42,7 +42,7 @@ public class CreateBookingImpl implements ICreateBooking {
 	private int currentBookingId;
 	
 	private static final  String OUTPUTDATE = "yyyy-MM-dd";
-	private static final String INPUTDATE = "MM/dd/yyyy";
+	private static final String INPUTDATE = "yyyy-MM-dd";
 	
 	private double finalPrice = 0;
 	
