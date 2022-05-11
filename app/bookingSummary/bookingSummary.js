@@ -18,3 +18,4 @@ $("#pool").text(bookingSummary.pool == 1 ? "Yes" : "No");
 $("#meals").text(bookingSummary.meals == 1 ? "Yes" : "No");
 $("#parking").text(bookingSummary.parking == 1 ? "Yes" : "No");
 $("#breakfast").text(bookingSummary.breakfast == 1 ? "Yes" : "No");
+
