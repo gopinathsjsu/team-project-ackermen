@@ -25,8 +25,9 @@ public class ModifyReservationController{
 	@DeleteMapping(value = "/deleteBooking/{bookingId}")
 	public String deleteBooking(@PathVariable int bookingId, HttpServletRequest request) {
 		
-		User user = (User) request.getSession().getAttribute("user");
-        if (user == null) return notLoggedIn;
+//		User user = (User) request.getSession().getAttribute("user");
+//        if (user == null) return notLoggedIn;
+		User user = new User();
 		
 		String json="";
 		int code = -2;

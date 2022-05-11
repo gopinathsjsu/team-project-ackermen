@@ -52,8 +52,8 @@ public class ModifyReservationImpl implements IModifyReservation {
 		booking = isValidBooking(bookingId);
 		if(booking.isEmpty())
 			return 4444;
-		if (booking.get(0).getUserId() != user.getId())
-            return 3333;
+//		if (booking.get(0).getUserId() != user.getId())
+//            return 3333;
 		//check if mandatory values are null
 		if(booking.get(0).getUserId() == 0 || booking.get(0).getHotelId()==0 || booking.get(0).getBookingId() ==0)
 			return 5555;
