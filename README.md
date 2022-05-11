@@ -27,7 +27,7 @@ https://github.com/gopinathsjsu/team-project-ackermen/projects
 Weekly Scrum report details, XP values, Technologies used
 
 https://github.com/gopinathsjsu/team-project-ackermen/wiki
-
+https://trello.com/b/EGeB3hkM/sprint-retrospectives
 
 ## Image sources
 
