@@ -9,6 +9,10 @@
 ## Jira Link for tracking user stories.
 https://team202-ackerman.atlassian.net/jira/software/projects/AC2/boards/2
 
+## Story links
+
+https://github.com/gopinathsjsu/team-project-ackermen/projects/4
+
 
 ## Github Project Board
 https://github.com/gopinathsjsu/team-project-ackermen/projects
@@ -20,7 +24,7 @@ https://github.com/gopinathsjsu/team-project-ackermen/projects
 ## Weekly Scrum report sample
 <img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
-## Weekly Scrum report details
+Weekly Scrum report details, XP values, Technologies used
 
 https://github.com/gopinathsjsu/team-project-ackermen/wiki
 
