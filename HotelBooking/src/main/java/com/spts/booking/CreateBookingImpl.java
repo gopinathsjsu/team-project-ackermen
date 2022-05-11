@@ -125,10 +125,10 @@ public class CreateBookingImpl implements ICreateBooking {
 		}
 		
 		String addNewBookingQuery = "INSERT INTO booking (user_id, hotel_id, booking_email, adult_count, children_count, check_in_date, check_out_date, "
-				+ "single_rooms_booked, double_rooms_booked,suites_booked,final_price,booking_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
+				+ "single_rooms_booked, double_rooms_booked,suites_booked,final_price,booking_status,daily_con_bf,gym,pool,parking,meals) VALUES (?,?,?,?,?,?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
 		code = jdbcTemplate.update(addNewBookingQuery, newBooking.getUserId(), newBooking.getHotelId(),
 				newBooking.getBookingEmail(),newBooking.getAdultCount(),newBooking.getChildrenCount(),outputDateFormat.format(checkinDate),outputDateFormat.format(checkoutDate),newBooking.getSingleroomsBooked(),
-				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),finalPrice,"Upcoming");
+				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),finalPrice,"Upcoming",newBooking.getBreakfast(),newBooking.getGym(),newBooking.getPool(),newBooking.getParking(),newBooking.getMeals());
 		//return booking id
 		int newBookingId = jdbcTemplate.queryForObject(currentBookingIdQuery, Integer.class);
         this.setCurrentBookingId(newBookingId);

@@ -24,6 +24,7 @@ public class CalculateFinalPrices {
 	private static final  String DATEFORMAT = "MM/dd/yyyy";
 	private static final  String SQLDATEFORMAT = "yyyy-MM-dd";
 	private List<Double> roomBasePrices = new ArrayList<>();
+	private List<Double> amenityPrices = new ArrayList<>();
 	private int frPoints;
 	
 	public int getFrPoints() {
@@ -41,11 +42,16 @@ public class CalculateFinalPrices {
 		int earnedLoyaltyPoints = 0;
 		float seasonalPricePercentage = 0;
 		double tempPrice = 0;
+		double afterAmenities = 0;
 		
 		// get base room price from db
 		setRoomBasePrices(newBooking);
+		setAmenityPrices(newBooking);
 		tempPrice = (newBooking.getSingleroomsBooked()*roomBasePrices.get(0)) + (newBooking.getDoubleroomsBooked()*roomBasePrices.get(1)) + (newBooking.getSuitesBooked()*roomBasePrices.get(2));
+		afterAmenities = (newBooking.getBreakfast()*amenityPrices.get(0) + newBooking.getGym()*amenityPrices.get(1) + newBooking.getPool()*amenityPrices.get(2) + newBooking.getParking()*amenityPrices.get(3) + newBooking.getMeals()*amenityPrices.get(4));
 		//check for seasons and other things
+		log.info("amenity prices "+afterAmenities);
+		tempPrice+=afterAmenities;
 		seasonalPricePercentage = checkForSeasonsandHolidays(newBooking.getCheckinDate(),newBooking.getCheckoutDate());
 		discountedPrice = tempPrice+(tempPrice*(seasonalPricePercentage/100));
 		// consider customer loyalty
@@ -91,6 +97,23 @@ public class CalculateFinalPrices {
 		basePriceQuery = "select suite_price from hotels where hotel_id = ?";
 		Double suitePrice = jdbcTemplate.queryForObject(basePriceQuery, Double.class,newBooking.getHotelId());
 		roomBasePrices.add(suitePrice);
+	}
+	public void setAmenityPrices(Booking newBooking) {
+		String basePriceQuery = "select daily_con_bf from hotels where hotel_id = ?";
+		Double breakfast = jdbcTemplate.queryForObject(basePriceQuery, Double.class,newBooking.getHotelId());
+		amenityPrices.add(breakfast);
+		basePriceQuery = "select gym from hotels where hotel_id = ?";
+		Double gym = jdbcTemplate.queryForObject(basePriceQuery, Double.class,newBooking.getHotelId());
+		amenityPrices.add(gym);
+		basePriceQuery = "select pool from hotels where hotel_id = ?";
+		Double pool = jdbcTemplate.queryForObject(basePriceQuery, Double.class,newBooking.getHotelId());
+		amenityPrices.add(pool);
+		basePriceQuery = "select parking from hotels where hotel_id = ?";
+		Double parking = jdbcTemplate.queryForObject(basePriceQuery, Double.class,newBooking.getHotelId());
+		amenityPrices.add(parking);
+		basePriceQuery = "select meals from hotels where hotel_id = ?";
+		Double meals = jdbcTemplate.queryForObject(basePriceQuery, Double.class,newBooking.getHotelId());
+		amenityPrices.add(meals);
 	}
 	
 	/*

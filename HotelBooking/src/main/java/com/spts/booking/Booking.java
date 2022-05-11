@@ -14,9 +14,73 @@ public class Booking {
 	private String bookingEmail;
 	private String statusMessage;
 	private int rewardPoints;
+	private double finalPrice;
+	private String bookingStatus;
+	private int pool;
+	private int gym;
+	private int parking;
+	private int meals;
+	private int breakfast;
+	public Booking(int bookingId, int userId, int hotelId, int adultCount, int childrenCount, String checkinDate,
+			String checkoutDate, int singleroomsBooked, int doubleroomsBooked, int suitesBooked, String bookingEmail,
+			String statusMessage, int rewardPoints, double finalPrice, String bookingStatus, int pool, int gym,
+			int parking, int meals, int breakfast) {
+		super();
+		this.bookingId = bookingId;
+		this.userId = userId;
+		this.hotelId = hotelId;
+		this.adultCount = adultCount;
+		this.childrenCount = childrenCount;
+		this.checkinDate = checkinDate;
+		this.checkoutDate = checkoutDate;
+		this.singleroomsBooked = singleroomsBooked;
+		this.doubleroomsBooked = doubleroomsBooked;
+		this.suitesBooked = suitesBooked;
+		this.bookingEmail = bookingEmail;
+		this.statusMessage = statusMessage;
+		this.rewardPoints = rewardPoints;
+		this.finalPrice = finalPrice;
+		this.bookingStatus = bookingStatus;
+		this.pool = pool;
+		this.gym = gym;
+		this.parking = parking;
+		this.meals = meals;
+		this.breakfast = breakfast;
+	}
+	
 	
 	public int getRewardPoints() {
 		return rewardPoints;
+	}
+	public int getPool() {
+		return pool;
+	}
+	public void setPool(int pool) {
+		this.pool = pool;
+	}
+	public int getGym() {
+		return gym;
+	}
+	public void setGym(int gym) {
+		this.gym = gym;
+	}
+	public int getParking() {
+		return parking;
+	}
+	public void setParking(int parking) {
+		this.parking = parking;
+	}
+	public int getMeals() {
+		return meals;
+	}
+	public void setMeals(int meals) {
+		this.meals = meals;
+	}
+	public int getBreakfast() {
+		return breakfast;
+	}
+	public void setBreakfast(int breakfast) {
+		this.breakfast = breakfast;
 	}
 	public void setRewardPoints(int rewardPoints) {
 		this.rewardPoints = rewardPoints;
@@ -30,26 +94,6 @@ public class Booking {
 	public Booking() {
 		
 	}
-	public Booking(int bookingId, int userId, int hotelId, int adultCount, int childrenCount, String checkinDate,
-			String checkoutDate, int singleroomsBooked, int doubleroomsBooked, int suitesBooked, String bookingEmail,
-			double finalPrice, String bookingStatus) {
-		super();
-		this.bookingId = bookingId;
-		this.userId = userId;
-		this.hotelId = hotelId;
-		this.adultCount = adultCount;
-		this.childrenCount = childrenCount;
-		this.checkinDate = checkinDate;
-		this.checkoutDate = checkoutDate;
-		this.singleroomsBooked = singleroomsBooked;
-		this.doubleroomsBooked = doubleroomsBooked;
-		this.suitesBooked = suitesBooked;
-		this.bookingEmail = bookingEmail;
-		this.finalPrice = finalPrice;
-		this.bookingStatus = bookingStatus;
-	}
-	private double finalPrice;
-	private String bookingStatus;
 	
 	public int getBookingId() {
 		return bookingId;

@@ -59,12 +59,12 @@ public class ModifyReservationImpl implements IModifyReservation {
 			return 5555;
 		//check if booking id is valid or not
 		
-		String deleteQuery = "DELETE FROM booking WHERE booking_id = "+bookingId;
-		modifyTemplate.execute(deleteQuery);
+		String deleteQuery = "update booking SET booking_status = ? WHERE booking_id = ?";
+		modifyTemplate.update(deleteQuery,"Deleted",bookingId);
 		deleteQuery = "select * from booking where booking_id = ?";
 		List<Booking> testBooking  = modifyTemplate.query(deleteQuery, BeanPropertyRowMapper.newInstance(Booking.class),bookingId);
 		available.updateRooms(booking.get(0),"Delete");
-		if(testBooking.isEmpty())
+		if(testBooking.get(0).getBookingStatus().equals("Deleted"))
 		 code = 1111;
 		else
 		 code = 2222;
@@ -113,9 +113,9 @@ public class ModifyReservationImpl implements IModifyReservation {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		String addNewBookingQuery = "update booking set adult_count = ?, children_count = ?, check_in_date = ?, check_out_date = ?,single_rooms_booked = ?, double_rooms_booked = ?,suites_booked = ?,final_price = ?, booking_status = ? where booking_id = ?";
+		String addNewBookingQuery = "update booking set adult_count = ?, children_count = ?, check_in_date = ?, check_out_date = ?,single_rooms_booked = ?, double_rooms_booked = ?,suites_booked = ?,final_price = ?, booking_status = ?,daily_con_bf = ?,gym = ?,pool= ?,parking = ?,meals = ? where booking_id = ?";
 		int result = modifyTemplate.update(addNewBookingQuery,newBooking.getAdultCount(),newBooking.getChildrenCount(),outputDateFormat.format(checkinDate),outputDateFormat.format(checkoutDate),newBooking.getSingleroomsBooked(),
-				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),price,"Upcoming",newBooking.getBookingId());
+				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),price,"Upcoming",newBooking.getBreakfast(),newBooking.getPool(),newBooking.getGym(),newBooking.getParking(),newBooking.getMeals(),newBooking.getBookingId());
 		
 		if(result == 1)
 			code = 1;
