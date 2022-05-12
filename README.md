@@ -64,6 +64,8 @@ Friday and Monday
 #### Booking Summary
 <img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
+Wireframes of SearchBar, Landing page, Search Results can be found at https://github.com/gopinathsjsu/team-project-ackermen/tree/main/Wireframes
+
 ## Image sources
 
 https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
