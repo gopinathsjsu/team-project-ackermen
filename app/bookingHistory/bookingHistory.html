@@ -34,11 +34,20 @@
           </li>
           <div class="nav-item form-inline">
             <button
-              class="btn btn-info"
+              class="btn btn-light"
               href="./bookingHistory/bookingHistory.html"
               tabindex="-1"
             >
               View Booking History
+            </button>
+          </div>
+          <div class="nav-item form-inline" style="margin-left: 20%;">
+            <button
+              class="btn btn-light"
+              onclick= "rewardPointDisplay()"
+              tabindex="-1"
+            >
+              Reward Points
             </button>
           </div>
         </ul>
@@ -94,6 +103,28 @@
   </div>
 
       
+
+  <!-- reward point modal -->
+  <button type="button" class="btn btn-primary" id="rewardPointButton" data-bs-toggle="modal" data-bs-target="#rewardPointModal" hidden>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="rewardPointModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rewardPointModalLabel">Rewards Earned</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Membership Status: <span id="rewardPointSpan"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="reloadPage()">Go Back!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     </div>
     <script src="./bookingHistory.js"></script>
