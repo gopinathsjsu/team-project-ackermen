@@ -59,6 +59,8 @@ https://www.pexels.com/search/breakfast/
 Note - Always fetch latest updates from repository before you start working on.
 
 ## Deployment Diagram
+![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
+
 
 ## DB schema
 
