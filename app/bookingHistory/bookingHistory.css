@@ -1,0 +1,14 @@
+.modal-content{
+    background-color: rgba(0,0,0,.8) !important;
+    color: #fff;
+    border-radius: 5px !important;
+  }
+h2, small, .text-muted {
+    color: #fff !important;
+}
+
+.set-bg-style, .card{
+  background-color: rgba(0,0,0,.5) !important;
+  color: #fff !important;
+  border-radius: 5px !important;
+}
