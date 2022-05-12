@@ -15,7 +15,7 @@ function reloadLocalStorage(){
     //localStorage.removeItem("bookingHistory");
     const userId = localStorage.getItem("userId");
     var settings = {
-        "url": "http://localhost:8090/getAllUserBookings/"+userId,
+        "url": "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/getAllUserBookings/"+userId,
         "method": "GET",
         "timeout": 0,
       };
@@ -32,7 +32,7 @@ function deleteBooking(elem){
     
 
     var settings = {
-        "url": "http://localhost:8090/deleteBooking/" + bookingHistory[elem.id.split("-")[1]].bookingId,
+        "url": "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/deleteBooking/" + bookingHistory[elem.id.split("-")[1]].bookingId,
         "method": "DELETE",
         "timeout": 0,
       };
@@ -55,7 +55,7 @@ function rewardPointDisplay(){
   const userId = localStorage.getItem("userId");
   let bookingHistory = JSON.parse(localStorage.getItem("bookingHistory"))
   var settings = {
-    "url": "http://localhost:8090/getRewards/"+userId,
+    "url": "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/getRewards/"+userId,
     "method": "GET",
     "timeout": 0,
   };

@@ -42,54 +42,51 @@ https://github.com/gopinathsjsu/team-project-ackermen/wiki
 ## Sprint Task Sheet
 https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskSheet.xlsx
 
+## XP core values 
 
-## Weekly Scrum report sample
-<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+<strong>Feedback</strong> - We provide our feedback to each teammate and listen to them carefully. We meet every week to discuss the feedback, how to improve the weak spots.We adjust our project by gather feedback on design and implementations. After each team member’s assigned story is done, other team members do a review and give some feedback about the work.
 
-## Sprint-wise burn down charts samples for 2 sprints
-<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
-<img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
+<strong>Simplicity</strong> - We are very specific about what we are going to develop, not creating any features which are not mentioned in requirements. Throughout the project, we guaranteed complete transparency, integrity, and ultimate reliability.
 
-## Scrum Meetings
-Friday and Monday
-
-## WireFrames
-
-#### Login
-<img src="/Wireframes/Login_Page.png" alt="Login_Page" title="Login_Page" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-#### SignUp
-<img src="/Wireframes/Frame 1.png" alt="SignUp" title="SignUp" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-#### Booking Summary
-<img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-## Image sources
-
-https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
-https://unsplash.com/t/food-drink
-https://www.pexels.com/search/breakfast/
+<strong>Respect</strong> - We respect everyone's ideas/inputs regarding project in team and come to a consensus. From the beginning of the project each team member had valued others opinion and also considered others ideas and suggestions and respected each others.
 
 
-Note - Always fetch latest updates from repository before you start working on.
 
-## Deployment Diagram
-![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
+## Design decisions
 
+1. We created a loosely coupled MVC pattern where our application APIs are hosted in the cloud and the UI is hosted on our local machines.
+2. We did not use Spring JPA repositories because before inserting the data into db, certain calculations had to be made. For example, in case of a new hotel booking, it is necessary to find out the final price and  reward points based on the final price.
+3. We have used AWS RDS because of its high-availability, backup and recovery features.
+4. We used JDBC driver to connect to AWS RDS, which provided us with the flexibility to use a variety of queries to fetch different data.
+5. We used SpringBoot framework for following reasons
 
-## DB schema
-
-![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
-
+                    1. Easy dependency management - Our entire backend runs only using 7 dependencies.
+                                Spring-boot-starter-web
+                                Spring-boot-starter-test
+                                Spring-boot-starter-jdbc
+                                Spring-boot-starter-actuator
+                                Mysql-connector-java
+                                Spring-session-core
+                                Spring-session-jdbc
+                    2. SpringBoot applications includes a embedded web server
+                    3. No need of deploying war files.
+                    4. Application is easy to start.
+                    
+6. We did not concentrate too much on UX as our main goal is to show a working application with a high quality UI.
+7. JQuery to be used to improve the performance and achieve the dynamic UserInterface, by generating the HTML and Styling dynamically on the BookingSummary and Hotel History Page.
+8. Implemented Event Listeners to handle user actions from the user interface, Event Listeners are reliable to use as they invoke the required Javascript methods.
+9. Toast messages are implemented to handle and display the error messages for multiple user input failure scenarios.
+10. As the web UI will be used across different browsers and devices, we leveraged Bootstrap as it is flexible for responsive design, while maintaining wide browser compatibility and offers consistent design by using reusable components.
+11. An AutoScaling group is configured to spin up EC2 instances in case of failures. This ASG consists of user data which is a bash script that installs aws-cli, java, downloads packages from S3 and runs jar file. User data script runs on every initialization of EC2 instances. An artifact(Jar file) is uploaded to AWS S3 and EC2 uses IAM to download the artifact from S3.
+12. An Application load balancer is configured to forward http traffic to a target and target group forwards traffic from 80 to 8090 (the port where application is running), health checks are configured on target group and ASG will create new instances (with 300 sec grace period) on failure in health checks. 
+13. As an additional security feature, a security group is configured so the requests are terminated at the load balancer and only the load balancer can talk to EC2 on 8090.
 
 ## Architecture diagram
 
 ![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
 
-## Use case diagram
-
-<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
-
+## Deployment Diagram
+![DD ](https://user-images.githubusercontent.com/99698941/168181332-f06f2bbb-cf54-4a8e-b8a9-7274b6286465.png)
 
 
 ## Feature set
@@ -109,10 +106,54 @@ Note - Always fetch latest updates from repository before you start working on.
 10. Seasonal pricing - prices are high for certain days in winter and summer season
 11. Holiday pricing - prices are high around Chrismas, Thanksgiving, New year and July 4th weekend 
 
-## Design decisions
 
+## DB schema
+
+![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
+
+
+## Use case diagram
+
+<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
+
+## Scrum Meetings
+Friday and Monday
 
 ## Story board sample
 
 <img width="1784" alt="story-screenshot" src="https://user-images.githubusercontent.com/13237444/168010545-6fbc2779-4c86-48ac-9c1b-b998226bc5d3.png">
+
+## Weekly Scrum report sample
+<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+## Sprint-wise burn down charts samples for 2 sprints
+<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
+<img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
+
+## WireFrames
+
+#### Login
+<img src="/Wireframes/Login_Page.png" alt="Login_Page" title="Login_Page" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+#### SignUp
+<img src="/Wireframes/Frame 1.png" alt="SignUp" title="SignUp" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+#### Booking Summary
+<img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+Wireframes of SearchBar, Landing page, Search Results can be found at https://github.com/gopinathsjsu/team-project-ackermen/tree/main/Wireframes
+
+## Image sources
+
+https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
+https://unsplash.com/t/food-drink
+https://www.pexels.com/search/breakfast/
+
+
+Note - Always fetch latest updates from repository before you start working on.
+
+
+
+
+
 

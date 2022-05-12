@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
-
+.modal-content{
+  background-color: rgba(0,0,0,.3) !important;
+  color: #fff;
+  border-radius: 5px !important;
+}
 * {
   padding: 0;
   margin: 0;
@@ -417,7 +421,16 @@ p {
   height: 50px;
   width: 100%;
 }
-
+.center-text {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  left: 20%;
+}
+.center-text h1 {
+  font-size: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 /*------------about------------*/
 /*------------wrapper------------*/
 .wrapper {

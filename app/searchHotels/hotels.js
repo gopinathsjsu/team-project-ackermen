@@ -14,7 +14,7 @@ if (form) {
         // console.log(fname + " type " +user_type);
 
         var settings = {
-            "url": "http://localhost:8090/searchHotels?searchkey=" + searchQuery,
+            "url": "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/searchHotels?searchkey=" + searchQuery,
             "method": "GET",
             "timeout": 0,
             "headers": {
