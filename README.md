@@ -86,6 +86,11 @@ Note - Always fetch latest updates from repository before you start working on.
 
 ![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
 
+## Use case diagram
+
+<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
+
+
 
 ## Feature set
 
