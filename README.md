@@ -55,9 +55,9 @@ Friday and Monday
 
 ## WireFrames
 
-### Login
+#### Login
 
-### SignUp
+#### SignUp
 
 ## Image sources
 
