@@ -86,7 +86,8 @@ https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskShee
 ![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
 
 ## Deployment Diagram
-![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
+ ![DD (2)](https://user-images.githubusercontent.com/99698941/168180834-13c35c1e-a5cb-4592-b2a8-87c49e9df889.png)
+
 
 ## Feature set
 
