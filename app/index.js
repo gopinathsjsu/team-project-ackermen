@@ -9,7 +9,7 @@ if (form) {
     const password = form.elements["password"].value;
 
     var settings = {
-      url: "http://localhost:8090/userLogin",
+      url: "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/userLogin",
       method: "POST",
       timeout: 0,
       headers: {

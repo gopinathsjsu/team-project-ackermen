@@ -5,7 +5,7 @@ console.log(form);
 if (form) {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-
+    //email, fname, adultcount, either of the rooms should be present, 
     const adultCount = form.elements["adultCount"].value;
     const childrenCount = form.elements["childrenCount"].value;
     const checkinDate = form.elements["checkinDate"].value;
@@ -22,8 +22,11 @@ if (form) {
     const meals = $("#meals").is(":checked") ? 1 : 0;
     const breakfast = $("#breakfast").is(":checked") ? 1 : 0;
     //console.log(loggedInUserEmail);
+
+
+
     var settings = {
-      url: "http://localhost:8090/createBooking",
+      url: "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/createBooking",
       method: "POST",
       timeout: 0,
       headers: {
@@ -57,9 +60,18 @@ if (form) {
       if (response.statusMessage == "Booking successful.") {
         localStorage.setItem("bookingSummary", JSON.stringify(response));
         window.location.href = "../bookingSummary/bookingSummary.html";
-      } else {
-        alert(response);
-      }
+      } else if(response.statusMessage.includes('duration')){
+                alert(response.statusMessage)
+        }
+        else if(response.statusMessage.includes('mandatory')){
+          alert(response.statusMessage)
+        }
+        else if(response.statusMessage.includes('duration')){
+          alert(response.statusMessage)
+        }
+        else {
+          alert(response.statusMessage)
+        }
     });
   });
 }
