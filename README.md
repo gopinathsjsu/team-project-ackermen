@@ -56,6 +56,9 @@ Note - Always fetch latest updates from repository before you start working on.
 
 ## Architecture diagram
 
+![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
+
+
 ## Feature set
 
 1. New users of our application can register using user signup
@@ -72,3 +75,9 @@ Note - Always fetch latest updates from repository before you start working on.
 9. Users are not allowed to stay for more than 7 days in a single booking.
 
 ## Design decisions
+
+
+## Story board sample
+
+<img width="1784" alt="story-screenshot" src="https://user-images.githubusercontent.com/13237444/168010545-6fbc2779-4c86-48ac-9c1b-b998226bc5d3.png">
+
