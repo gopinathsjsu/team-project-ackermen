@@ -20,7 +20,7 @@ public class ViewAllBookingsController {
 	@GetMapping(value = "/getAllBookings", produces = "application/json")
 
 	public String getAllBookings(HttpServletRequest request) {
-		
+
 		User user = (User) request.getSession().getAttribute("user");
 
 		if (user == null) 
@@ -30,9 +30,9 @@ public class ViewAllBookingsController {
 
 		String json="";
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		
+
 		try {
-			json = ow.writeValueAsString(viewAllBookings.getBookingRecords(user));
+			json = ow.writeValueAsString(viewAllBookings.getBookingRecords());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 
 import com.spts.booking.Booking;
 import com.spts.interfaces.IViewAllBookings;
-import com.spts.signup.User;
+
+
 
 @Component
 public class ViewAllBookingsImpl implements IViewAllBookings {
@@ -19,17 +20,27 @@ public class ViewAllBookingsImpl implements IViewAllBookings {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
+
 	@Override
-	public List<Booking> getBookingRecords(User user) {
+	public List<Booking> getBookingRecords() {
 
 		List<Booking> allBookings = new ArrayList<>();
-		
-		String sql = "select * from booking";
-		
-		if("c".equals(user.getUserType()))
-			return new ArrayList<Booking>();
+		String sql = "select booking_id as bookingId, user_id as userId, hotel_id as hotelId, booking_email as bookingEmail, "
+				+"adult_count as adultCount, children_count as childrenCount, check_in_date as checkinDate, "
+				+ "check_out_date as checkoutDate, single_rooms_booked as singleroomsBooked, double_rooms_booked as doubleroomsBooked, "
+				+ "suites_booked as suitesBooked, final_price as finalPrice, booking_status as bookingStatus, daily_con_bf as breakfast, "
+				+"gym as gym, pool as pool, parking as parking, meals as meals from booking";
+
+		String rewardsQuery = "select reward_points from rewards where user_id = ?";
 		try {
 			allBookings = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Booking.class)); 
+			if(!allBookings.isEmpty()) {
+				for(Booking b : allBookings) {
+					b.setStatusMessage("View all bookings success");
+					int intelist = jdbcTemplate.queryForObject(rewardsQuery, Integer.class,b.getUserId());
+					b.setRewardPoints(intelist);
+				}
+			}
 		}
 		catch(DataAccessException da) {
 			throw new RuntimeException(da);
@@ -39,3 +50,5 @@ public class ViewAllBookingsImpl implements IViewAllBookings {
 	}
 
 }
+
+
