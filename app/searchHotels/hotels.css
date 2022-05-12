@@ -5,8 +5,18 @@ html {
     margin: 0;
     padding: 0;
     background-image: url("../StaticResources/bg3.jpg");
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat:repeat;
+    background-size: cover;
 }
-
+.set-bg-style{
+    background-color: rgba(0,0,0,.3);
+    color: #fff;
+}
 .searchbar {
     margin-bottom: auto;
     margin-top: auto;
