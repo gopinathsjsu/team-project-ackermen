@@ -25,8 +25,10 @@ public class AddHotelImpl {
 			+ "suite_price,daily_con_bf,gym,pool,parking,meals)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
 	public int addHotel(NewHotel newHotel, User user){
+
 		List<User> userList = new ArrayList<>();
 		int code = -1;
+
 		try {
 			userList = jdbcTemplate.query(getUserSql, BeanPropertyRowMapper.newInstance(User.class)); 
 			if(userList.isEmpty())
