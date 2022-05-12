@@ -24,10 +24,13 @@ https://github.com/gopinathsjsu/team-project-ackermen/commits/main (for main bra
 
 Individual commit history
 
-Pavan Karthik - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=pavankarthikg
-Sai Lahari Seethamraju - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=slahari5
-Saikrishna Dosapati - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=saikrishnaDsk
-Teja Ganapati Jaddipal - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=gthreehosmane
+Pavan Karthik - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=pavankarthikg 
+
+Sai Lahari Seethamraju - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=slahari5 
+
+Saikrishna Dosapati - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=saikrishnaDsk 
+
+Teja Ganapati Jaddipal - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=gthreehosmane 
 
 ## Github Project Board
 https://github.com/gopinathsjsu/team-project-ackermen/projects/4
