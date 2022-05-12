@@ -1,33 +1,42 @@
+## Team Ackermen
+
 ### Team Members
 
-1. Sai Lahari Seethamraju (SJSU ID - 016037112)
-2. Pavan Karthik (SJSU ID - 015945670)
+1. Pavan Karthik Gollakaram (SJSU ID - 015945670)
+2. Sai Lahari Seethamraju (SJSU ID - 016037112)
 3. Saikrishna Dosapati(SJSU ID - 015950493)
 4. Teja Ganapati Jaddipal(SJSU ID - 015957526)
 
 
-## Jira Link for tracking user stories.
-https://team202-ackerman.atlassian.net/jira/software/projects/AC2/boards/2
+## Areas of contribution
 
-## Story links
+1. Pavan Karthik - Worked on Frontend, Creation of wireframes.
+2. Sai Lahari Seethamraju  - Worked on Backend Development, Worked on cloud deployment.
+3. Saikrishna Dosapati - Worked on Frontend, RDS Setup,
+4. Teja Ganapati Jaddipal - Worked on Backend Development, API testing, RDS Setup.
 
-https://github.com/gopinathsjsu/team-project-ackermen/projects/4
-
+## Github repo link
+https://github.com/gopinathsjsu/team-project-ackermen
 
 ## Github Project Board
-https://github.com/gopinathsjsu/team-project-ackermen/projects
+https://github.com/gopinathsjsu/team-project-ackermen/projects/4
+
+https://trello.com/b/EGeB3hkM/sprint-retrospectives
+
+
+## Github Project journal (Includes weekly scrum reports, XP values, technology details)
+https://github.com/gopinathsjsu/team-project-ackermen/wiki
+
+## Weekly Scrum report sample
+<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
 ## Sprint-wise burn down charts samples for 2 sprints
 <img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
 <img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
 
-## Weekly Scrum report sample
-<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+## Sprint Tasksheet
 
-Weekly Scrum report details, XP values, Technologies used
 
-https://github.com/gopinathsjsu/team-project-ackermen/wiki
-https://trello.com/b/EGeB3hkM/sprint-retrospectives
 
 ## Image sources
 
@@ -42,52 +51,24 @@ Note - Always fetch latest updates from repository before you start working on.
 
 ## DB schema
 
+![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
+
+
 ## Architecture diagram
 
-## Execution steps
-Steps to run the project.
+## Feature set
 
-1. Download and Install maven.
-2. Download and Install postman to test APIs
-3. Go to "your-project-location/HotelBooking"
-4. Open terminal and execute command "mvn clean install" and wait for the compilation to complete.
-5. Execute the command "mvn spring-boot:run", the embedded tomacat server will start at port 8090.
-6. Using postman test the APIs - 
-      1. API to get all users  - GET http://localhost:8090/getAllUsers -  Displays the user data that is currently available
-      2. API to create a new user for hotel management system - POST http://localhost:8090/createUser - Creates a new user in th database using the data sent with API. CustomerType will be 'c' for external users, 'a' for admin and 'e' for hotel staff.
-      
-      
-            Data Format should be - 
-            
-            {
-              "id": 116,
-              "firstName": "3xk",
-              "lastName": "tyson",
-              "email": "tyson@mail.com",
-              "password": "tyson@nypd",
-              "country": "USA",
-              "city": "Manhattan",
-              "address": "1 washington sq. san jose",
-              "zipcode": "95133",
-              "userType": "c"
-            }
-      
-      3. API to serach for hotels - GET http://localhost:8090/searchHotels?searchkey=sPaRtan - value of searchkey parameter can be replaced with any string. Currently the search API works with country name and hotel name as search key.
-      4. API to create new booking - POST http://localhost:8090/createBooking - creates a new booking row in db with the data sent with API
+1. New users of our application can register using user signup
+2. Application supports 3 types of users
+      a. End User - Has permissions to book rooms, delete booking, change booking, access reward points
+      b. Hotel employees - Can perform extra functions such as View all users, view all bookings, booking checkout along with normal user functions.
+      c. Hotel Admins - Has highest level of privilage, only admins can Add new hotel details to website. Apart from this Admins can do all end user and hotel employee functions.
+3. Final price of the booking depends on number of guests, room types selected, amenities selected and check-in check-out dates.
+4. When a new user signes up will get 100 reward points as welcome bonus.
+5. Depending on the reward points accumulated, users will get a automatic discount on final booking price.
+6. Users can search for hotels based on country or name of the hotel.
+7. Using one email id only one user can signup.
+8. Users can see their booking history, do new bookings, change/cancel their booking using our application
+9. Users are not allowed to stay for more than 7 days in a single booking.
 
-             No need to send booking id since it will be auto incremented in db and will be returned
-             Data format should be - 
-             {
-                "userId": 2, 
-                "hotelId": 1,
-                "adultCount":4,
-                "childrenCount":2,
-                "checkinDate":"06/05/2022",
-                "checkoutDate":"06/08/2022",
-                "singleroomsBooked":2,
-                "doubleroomsBooked":0,
-                "suitesBooked":1,
-                "bookingEmail":"iloveburgers@bur.com"
-             }
-      
-7. Everyone can connect to the db now with the details provided in properties file.
+## Design decisions
