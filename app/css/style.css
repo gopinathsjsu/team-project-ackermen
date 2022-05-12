@@ -417,7 +417,16 @@ p {
   height: 50px;
   width: 100%;
 }
-
+.center-text {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  left: 20%;
+}
+.center-text h1 {
+  font-size: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 /*------------about------------*/
 /*------------wrapper------------*/
 .wrapper {
