@@ -35,10 +35,6 @@ https://github.com/gopinathsjsu/team-project-ackermen/wiki
 ## Scrum Meetings
 Friday and Monday
 
-## Sprint Tasksheet
-
-
-
 ## Image sources
 
 https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
