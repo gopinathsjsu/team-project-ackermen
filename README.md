@@ -12,7 +12,7 @@
 
 1. Pavan Karthik - Worked on Frontend, Creation of wireframes.
 2. Sai Lahari Seethamraju  - Worked on Backend Development, Worked on cloud deployment.
-3. Saikrishna Dosapati - Worked on Frontend, RDS Setup,
+3. Saikrishna Dosapati - Worked on Frontend, RDS Setup.
 4. Teja Ganapati Jaddipal - Worked on Backend Development, API testing, RDS Setup.
 
 ## Github repo link
@@ -31,6 +31,9 @@ https://github.com/gopinathsjsu/team-project-ackermen/wiki
 ## Sprint-wise burn down charts samples for 2 sprints
 <img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
 <img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
+
+## Scrum Meetings
+Friday and Monday
 
 ## Sprint Tasksheet
 
