@@ -50,8 +50,24 @@ https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskShee
 <img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
 <img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
 
+## Architecture diagram
+
+![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
+
+## Deployment Diagram
+![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
+
 ## Scrum Meetings
 Friday and Monday
+
+## DB schema
+
+![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
+
+
+## Use case diagram
+
+<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
 
 ## WireFrames
 
@@ -74,24 +90,6 @@ https://www.pexels.com/search/breakfast/
 
 
 Note - Always fetch latest updates from repository before you start working on.
-
-## Deployment Diagram
-![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
-
-
-## DB schema
-
-![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
-
-
-## Architecture diagram
-
-![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
-
-## Use case diagram
-
-<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
-
 
 
 ## Feature set
@@ -139,11 +137,6 @@ Note - Always fetch latest updates from repository before you start working on.
 11. An AutoScaling group is configured to spin up EC2 instances in case of failures. This ASG consists of user data which is a bash script that installs aws-cli, java, downloads packages from S3 and runs jar file. User data script runs on every initialization of EC2 instances. An artifact(Jar file) is uploaded to AWS S3 and EC2 uses IAM to download the artifact from S3.
 12. An Application load balancer is configured to forward http traffic to a target and target group forwards traffic from 80 to 8090 (the port where application is running), health checks are configured on target group and ASG will create new instances (with 300 sec grace period) on failure in health checks. 
 13. As an additional security feature, a security group is configured so the requests are terminated at the load balancer and only the load balancer can talk to EC2 on 8090.
-
-
-
-
-
 
 
 
