@@ -56,13 +56,13 @@ Friday and Monday
 ## WireFrames
 
 #### Login
-<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+<img src="/Wireframes/Login_Page.png" alt="Login_Page" title="Login_Page" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
 #### SignUp
-<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+<img src="/Wireframes/Frame 1.png" alt="SignUp" title="SignUp" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
 #### Booking Summary
-<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+<img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
 ## Image sources
 
