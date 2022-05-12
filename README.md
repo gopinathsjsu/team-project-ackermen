@@ -21,8 +21,6 @@ https://github.com/gopinathsjsu/team-project-ackermen
 ## Github Project Board
 https://github.com/gopinathsjsu/team-project-ackermen/projects/4
 
-https://trello.com/b/EGeB3hkM/sprint-retrospectives
-
 
 ## Github Project journal (Includes weekly scrum reports, XP values, technology details)
 https://github.com/gopinathsjsu/team-project-ackermen/wiki
