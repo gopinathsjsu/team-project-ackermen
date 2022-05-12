@@ -48,3 +48,43 @@ function deleteBooking(elem){
 function reloadPage(){
     location.reload(true);
 }
+
+
+
+function rewardPointDisplay(){
+  const userId = localStorage.getItem("userId");
+  let bookingHistory = JSON.parse(localStorage.getItem("bookingHistory"))
+  var settings = {
+    "url": "http://localhost:8090/getRewards/"+userId,
+    "method": "GET",
+    "timeout": 0,
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    if(response.rewardPoints > 0 && response.rewardPoints <= 500 ){
+      let latestRewardPoints = response.rewardPoints;
+    $("#rewardPointSpan").html('Silver - ' + latestRewardPoints);
+    $("#rewardPointButton").click(); 
+    } else if (response.rewardPoints > 500 && response.rewardPoints <= 1000 ){
+      let latestRewardPoints = response.rewardPoints;
+    $("#rewardPointSpan").html('Gold - ' + latestRewardPoints);
+    $("#rewardPointButton").click(); 
+    } else if (response.rewardPoints > 1000 && response.rewardPoints <= 2000 ){
+      let latestRewardPoints = response.rewardPoints;
+    $("#rewardPointSpan").html('Platinum - ' + latestRewardPoints);
+    $("#rewardPointButton").click(); 
+    } else if (response.rewardPoints > 2000 ){
+      let latestRewardPoints = response.rewardPoints;
+    $("#rewardPointSpan").html('Spear Elite - ' + latestRewardPoints);
+    $("#rewardPointButton").click(); 
+    } else {
+    $("#rewardPointSpan").html('You do not have any Reward Points');
+    $("#rewardPointButton").click(); 
+    }
+    
+    // if(response)
+  });
+  
+  
+}

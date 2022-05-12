@@ -12,11 +12,25 @@
 
 1. Pavan Karthik - Worked on Frontend, Creation of wireframes.
 2. Sai Lahari Seethamraju  - Worked on Backend Development, Worked on cloud deployment.
-3. Saikrishna Dosapati - Worked on Frontend, RDS Setup,
+3. Saikrishna Dosapati - Worked on Frontend, RDS Setup.
 4. Teja Ganapati Jaddipal - Worked on Backend Development, API testing, RDS Setup.
 
 ## Github repo link
 https://github.com/gopinathsjsu/team-project-ackermen
+
+Commit history link(Incase github insights not showing correctly)
+
+https://github.com/gopinathsjsu/team-project-ackermen/commits/main (for main branch)
+
+Individual commit history
+
+Pavan Karthik - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=pavankarthikg 
+
+Sai Lahari Seethamraju - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=slahari5 
+
+Saikrishna Dosapati - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=saikrishnaDsk 
+
+Teja Ganapati Jaddipal - https://github.com/gopinathsjsu/team-project-ackermen/commits?author=gthreehosmane 
 
 ## Github Project Board
 https://github.com/gopinathsjsu/team-project-ackermen/projects/4
@@ -25,6 +39,10 @@ https://github.com/gopinathsjsu/team-project-ackermen/projects/4
 ## Github Project journal (Includes weekly scrum reports, XP values, technology details)
 https://github.com/gopinathsjsu/team-project-ackermen/wiki
 
+## Sprint Task Sheet
+https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskSheet.xlsx
+
+
 ## Weekly Scrum report sample
 <img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
@@ -32,9 +50,19 @@ https://github.com/gopinathsjsu/team-project-ackermen/wiki
 <img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
 <img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
 
-## Sprint Tasksheet
+## Scrum Meetings
+Friday and Monday
 
+## WireFrames
 
+#### Login
+<img src="/Wireframes/Login_Page.png" alt="Login_Page" title="Login_Page" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+#### SignUp
+<img src="/Wireframes/Frame 1.png" alt="SignUp" title="SignUp" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+#### Booking Summary
+<img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
 ## Image sources
 
@@ -46,6 +74,8 @@ https://www.pexels.com/search/breakfast/
 Note - Always fetch latest updates from repository before you start working on.
 
 ## Deployment Diagram
+![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
+
 
 ## DB schema
 
@@ -55,6 +85,11 @@ Note - Always fetch latest updates from repository before you start working on.
 ## Architecture diagram
 
 ![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
+
+## Use case diagram
+
+<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
+
 
 
 ## Feature set
@@ -71,6 +106,8 @@ Note - Always fetch latest updates from repository before you start working on.
 7. Using one email id only one user can signup.
 8. Users can see their booking history, do new bookings, change/cancel their booking using our application
 9. Users are not allowed to stay for more than 7 days in a single booking.
+10. Seasonal pricing - prices are high for certain days in winter and summer season
+11. Holiday pricing - prices are high around Chrismas, Thanksgiving, New year and July 4th weekend 
 
 ## Design decisions
 

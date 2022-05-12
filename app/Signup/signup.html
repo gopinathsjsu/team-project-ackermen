@@ -22,12 +22,12 @@
     <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all" />
 
     <!-- Main CSS-->
-    <link href="css/main.css" rel="stylesheet" media="all" />
-
+    <!-- <link href="css/main.css" rel="stylesheet" media="all" /> -->
+    <link href="./signup.css" rel="stylesheet" media="all" />
 
 </head>
 
-<body>
+<body class="bg">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -47,7 +47,7 @@
         </div>
       </div>
     </nav>
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="page-wrapper p-t-130 p-b-100 font-poppins">
       <div class="wrapper wrapper--w680">
         <div class="card card-4">
           <div class="card-body">
@@ -76,10 +76,8 @@
                     />
                   </div>
                 </div>
-              </div>
-              <div class="row row-space">
                 <div class="col-2">
-                  <div class="input-group">
+                  <div class="input-group" style="margin-bottom: 5px; margin-top:8px;">
                     <label class="label">Date of Birth</label>
                     <div class="input-group-icon">
                       <input
@@ -94,6 +92,8 @@
                     </div>
                   </div>
                 </div>
+                
+              <div class="row row-space">
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">Gender</label>
@@ -111,8 +111,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row row-space">
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">Email</label>
@@ -130,6 +128,8 @@
                     />
                   </div>
                 </div>
+              </div>
+                
               </div>
               <div class="row row-space">
                 <div class="col-2">
@@ -155,37 +155,28 @@
                         <input type="radio" name="user_type" />
                         <span class="checkmark"></span>
                       </label>
+                      <label class="radio-container">Admin
+                        <input type="radio" name="user_type" />
+                        <span class="checkmark"></span>
+                      </label>
                     </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <label class="label">Country</label>
+                    <input class="input--style-4" type="text" name="subject" id="subject"/>
                   </div>
                 </div>
               </div>
               <div class="row row-space">
-                <div class="col-2">
-                  <div class="input-group">
-                    <label class="label">Country</label>
-                    <div class="rs-select2 js-select-simple select--no-search">
-                      <select name="subject" id="subject">
-                        <option disabled="disabled" selected="selected">
-                          Choose option
-                        </option>
-                        <option>USA</option>
-                        <option>India</option>
-                        <option>Canada</option>
-                      </select>
-                      <div class="select-dropdown"></div>
-                    </div>
-                  </div>
-                </div>
+                
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">Address (Street)</label>
                     <input class="input--style-4" type="text" name="address" id="address"/>
                   </div>
                 </div>
-              </div>
-             
-
-              <div class="row row-space">
                 <div class="col-2">
                   <div class="input-group">
                     <label class="label">City/Town</label>
@@ -203,7 +194,7 @@
                 <button class="btn btn--radius-2 btn--blue" type="submit">
                   Submit
                 </button><br><br>
-                Already a member? Click here to <a href="../Login/login.html"><span>Login</span></a>
+                Already a member? Click here to <a href="../Login/login.html"><span style="color: #fff;">Login</span></a>
             </div>
             </form>
         </div>
