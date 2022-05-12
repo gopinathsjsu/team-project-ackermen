@@ -188,11 +188,11 @@ header.sticky ul li a {
     justify-content: space-between;
   }
   /*
-  .collapse nav-item {
-    padding: 10px;
+  .collapse > nav-item {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  */
-
+*/
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -247,7 +247,8 @@ header.sticky ul li a {
   grid-gap: 30px;
 }
 .home {
-  height: 100vh;
+  
+  height: 100%;
   max-width: 100%;
 }
 /*
@@ -260,20 +261,21 @@ header.sticky ul li a {
   background-size: cover;
   text-align: center;
 }
-*/
-.home h1 {
+
+.home h5 {
   text-align: center;
   font-family: "Great Vibes", cursive;
   font-size: 150px;
   color: cadetblue;
-  padding-top: 10%;
 }
+*/
 
 .home p {
   text-align: center;
   font-family: "Great Vibes", cursive;
   font-size: 50px;
   color: cadetblue;
+  padding-top: 5%;
 }
 
 .home .content {
@@ -289,7 +291,8 @@ header.sticky ul li a {
 }
 
 .home input {
-  margin-top: 10px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 input {
