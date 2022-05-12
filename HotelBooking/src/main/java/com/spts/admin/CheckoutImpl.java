@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import com.spts.booking.Booking;
 import com.spts.helper.UpdateRoomAvailability;
 import com.spts.interfaces.ICheckOut;
-import com.spts.signup.User;
 
 @Component
 public class CheckoutImpl implements ICheckOut{
