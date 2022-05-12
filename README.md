@@ -42,6 +42,16 @@ https://github.com/gopinathsjsu/team-project-ackermen/wiki
 ## Sprint Task Sheet
 https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskSheet.xlsx
 
+## XP core values 
+
+<strong>Feedback</strong> - We provide our feedback to each teammate and listen to them carefully. We meet every week to discuss the feedback, how to improve the weak spots.We adjust our project by gather feedback on design and implementations. After each team member’s assigned story is done, other team members do a review and give some feedback about the work.
+
+<strong>Simplicity</strong> - We are very specific about what we are going to develop, not creating any features which are not mentioned in requirements. Throughout the project, we guaranteed complete transparency, integrity, and ultimate reliability.
+
+<strong>Respect</strong> - We respect everyone's ideas/inputs regarding project in team and come to a consensus. From the beginning of the project each team member had valued others opinion and also considered others ideas and suggestions and respected each others.
+
+
+
 ## Design decisions
 
 1. We created a loosely coupled MVC pattern where our application APIs are hosted in the cloud and the UI is hosted on our local machines.
