@@ -23,7 +23,7 @@ if (form) {
     const breakfast = $("#breakfast").is(":checked") ? 1 : 0;
     //console.log(loggedInUserEmail);
 
-
+    
 
     var settings = {
       url: "http://SpartanLoadBalancer-1460688251.us-east-1.elb.amazonaws.com/createBooking",
