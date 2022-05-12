@@ -42,73 +42,6 @@ https://github.com/gopinathsjsu/team-project-ackermen/wiki
 ## Sprint Task Sheet
 https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskSheet.xlsx
 
-
-## Weekly Scrum report sample
-<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-## Sprint-wise burn down charts samples for 2 sprints
-<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
-<img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
-
-## Architecture diagram
-
-![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
-
-## Deployment Diagram
-![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
-
-## Scrum Meetings
-Friday and Monday
-
-## DB schema
-
-![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
-
-
-## Use case diagram
-
-<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
-
-## WireFrames
-
-#### Login
-<img src="/Wireframes/Login_Page.png" alt="Login_Page" title="Login_Page" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-#### SignUp
-<img src="/Wireframes/Frame 1.png" alt="SignUp" title="SignUp" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-#### Booking Summary
-<img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
-
-Wireframes of SearchBar, Landing page, Search Results can be found at https://github.com/gopinathsjsu/team-project-ackermen/tree/main/Wireframes
-
-## Image sources
-
-https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
-https://unsplash.com/t/food-drink
-https://www.pexels.com/search/breakfast/
-
-
-Note - Always fetch latest updates from repository before you start working on.
-
-
-## Feature set
-
-1. New users of our application can register using user signup
-2. Application supports 3 types of users
-      a. End User - Has permissions to book rooms, delete booking, change booking, access reward points
-      b. Hotel employees - Can perform extra functions such as View all users, view all bookings, booking checkout along with normal user functions.
-      c. Hotel Admins - Has highest level of privilage, only admins can Add new hotel details to website. Apart from this Admins can do all end user and hotel employee functions.
-3. Final price of the booking depends on number of guests, room types selected, amenities selected and check-in check-out dates.
-4. When a new user signes up will get 100 reward points as welcome bonus.
-5. Depending on the reward points accumulated, users will get a automatic discount on final booking price.
-6. Users can search for hotels based on country or name of the hotel.
-7. Using one email id only one user can signup.
-8. Users can see their booking history, do new bookings, change/cancel their booking using our application
-9. Users are not allowed to stay for more than 7 days in a single booking.
-10. Seasonal pricing - prices are high for certain days in winter and summer season
-11. Holiday pricing - prices are high around Chrismas, Thanksgiving, New year and July 4th weekend 
-
 ## Design decisions
 
 1. We created a loosely coupled MVC pattern where our application APIs are hosted in the cloud and the UI is hosted on our local machines.
@@ -138,9 +71,78 @@ Note - Always fetch latest updates from repository before you start working on.
 12. An Application load balancer is configured to forward http traffic to a target and target group forwards traffic from 80 to 8090 (the port where application is running), health checks are configured on target group and ASG will create new instances (with 300 sec grace period) on failure in health checks. 
 13. As an additional security feature, a security group is configured so the requests are terminated at the load balancer and only the load balancer can talk to EC2 on 8090.
 
+## Architecture diagram
 
+![architecture-diagram](https://user-images.githubusercontent.com/13237444/168009462-899c643f-aa8c-44a3-a401-4e1b2ca2d993.png)
+
+## Deployment Diagram
+![DD (1)](https://user-images.githubusercontent.com/99698941/168138540-2e949aac-eab1-4907-821a-feec9ec522b0.png)
+
+## Feature set
+
+1. New users of our application can register using user signup
+2. Application supports 3 types of users
+      a. End User - Has permissions to book rooms, delete booking, change booking, access reward points
+      b. Hotel employees - Can perform extra functions such as View all users, view all bookings, booking checkout along with normal user functions.
+      c. Hotel Admins - Has highest level of privilage, only admins can Add new hotel details to website. Apart from this Admins can do all end user and hotel employee functions.
+3. Final price of the booking depends on number of guests, room types selected, amenities selected and check-in check-out dates.
+4. When a new user signes up will get 100 reward points as welcome bonus.
+5. Depending on the reward points accumulated, users will get a automatic discount on final booking price.
+6. Users can search for hotels based on country or name of the hotel.
+7. Using one email id only one user can signup.
+8. Users can see their booking history, do new bookings, change/cancel their booking using our application
+9. Users are not allowed to stay for more than 7 days in a single booking.
+10. Seasonal pricing - prices are high for certain days in winter and summer season
+11. Holiday pricing - prices are high around Chrismas, Thanksgiving, New year and July 4th weekend 
+
+
+## DB schema
+
+![hotel_schema3 0](https://user-images.githubusercontent.com/13237444/167969704-6c505a65-07da-4d3a-bdd4-d8ece0aba9fa.png)
+
+
+## Use case diagram
+
+<img width="1099" alt="use-case" src="https://user-images.githubusercontent.com/13237444/168154194-a8ecf36e-7698-4b87-a847-cd967af7a52c.png">
+
+## Scrum Meetings
+Friday and Monday
 
 ## Story board sample
 
 <img width="1784" alt="story-screenshot" src="https://user-images.githubusercontent.com/13237444/168010545-6fbc2779-4c86-48ac-9c1b-b998226bc5d3.png">
+
+## Weekly Scrum report sample
+<img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+## Sprint-wise burn down charts samples for 2 sprints
+<img src="/BurnDownCharts/Sprint_1.png" alt="Sprint 1 Burn down chart" title="Sprint 1 Burn down chart" style="display: inline-block; margin-left: 0 auto; width: 500px">
+<img src="/BurnDownCharts/Sprint_4.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 500px">
+
+## WireFrames
+
+#### Login
+<img src="/Wireframes/Login_Page.png" alt="Login_Page" title="Login_Page" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+#### SignUp
+<img src="/Wireframes/Frame 1.png" alt="SignUp" title="SignUp" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+#### Booking Summary
+<img src="/Wireframes/BookingSummary.png" alt="BookingSummary" title="BookingSummary" style="display: inline-block; margin-right: 0 auto; width: 800px">
+
+Wireframes of SearchBar, Landing page, Search Results can be found at https://github.com/gopinathsjsu/team-project-ackermen/tree/main/Wireframes
+
+## Image sources
+
+https://mobirise.com/extensions/hotelm4/sliders-and-galleries.html
+https://unsplash.com/t/food-drink
+https://www.pexels.com/search/breakfast/
+
+
+Note - Always fetch latest updates from repository before you start working on.
+
+
+
+
+
 
