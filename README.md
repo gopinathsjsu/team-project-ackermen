@@ -39,6 +39,10 @@ https://github.com/gopinathsjsu/team-project-ackermen/projects/4
 ## Github Project journal (Includes weekly scrum reports, XP values, technology details)
 https://github.com/gopinathsjsu/team-project-ackermen/wiki
 
+## Sprint Task Sheet
+https://github.com/gopinathsjsu/team-project-ackermen/blob/main/Sprints_TaskSheet.xlsx
+
+
 ## Weekly Scrum report sample
 <img src="/webpages/Weekly_Scrum_Report.png" alt="Sprint 4 Burn down chart" title="Sprint 4 Burn down chart" style="display: inline-block; margin-right: 0 auto; width: 800px">
 
