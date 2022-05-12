@@ -20,19 +20,19 @@ public class CheckOutController {
 	private final String notLoggedIn = "Must be logged in.";
 
 	@PostMapping(value = "/checkout/{bookingId}", produces = "application/json")
-
 	public String createPerson(@PathVariable int bookingId, HttpServletRequest request){
-		User user = (User) request.getSession().getAttribute("user");
 
+		User user = (User) request.getSession().getAttribute("user");
 		if (user == null) 
 			return notLoggedIn;
+
 		if(user.getUserType().equals("c"))
 			return "Permission denied";
 
 		String json="";
 		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		int result = checkout.checkoutRooms(bookingId);
 
+		int result = checkout.checkoutRooms(bookingId);
 		switch(result) {
 		case 0 : json = "Something went wrong while checking out..Please try again";
 		break;
@@ -51,6 +51,5 @@ public class CheckOutController {
 		return json;
 
 	}
-
 
 }

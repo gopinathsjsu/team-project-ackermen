@@ -1,5 +1,6 @@
 package com.spts.admin;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import com.spts.interfaces.ICheckOut;
 
 @Component
 public class CheckoutImpl implements ICheckOut{
+
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -29,17 +31,16 @@ public class CheckoutImpl implements ICheckOut{
 	public int changeBookingStatus(int bookingId) {
 
 		String getBooking = "select * from booking where booking_id = ?";
+
 		int code = -1;
-
-		List<Booking> bookinglist = jdbcTemplate.query(getBooking, BeanPropertyRowMapper.newInstance(Booking.class),bookingId);
-
+		List<Booking> bookinglist = jdbcTemplate.query(getBooking, 
+				BeanPropertyRowMapper.newInstance(Booking.class),bookingId);
 		if(bookinglist.isEmpty())
 			return 1111;
 
 		String updateBookingQuery = "UPDATE booking SET booking_status = ? where booking_id = ?";
 
 		code = jdbcTemplate.update(updateBookingQuery,"CheckedOut",bookingId);
-
 		if(code != 1)
 			return code;
 		code = available.updateRooms(bookinglist.get(0),"CheckOut");
