@@ -18,10 +18,10 @@ public class HotelSearchImpl {
 	JdbcTemplate searchTemplate;
 	//private static final Logger log = LoggerFactory.getLogger(HotelSearchImpl.class);
 	public List<Hotels> searchHotels(String key) {
-		String sql = "select * from hotels where country = ? OR hotel_name LIKE '%"+key+"%'";  
+		String sql = "select * from hotels where country = ? OR city = ? OR hotel_name LIKE '%"+key+"%'";
 		List<Hotels> results = new ArrayList<>();
 		try {
-		results = searchTemplate.query(sql, BeanPropertyRowMapper.newInstance(Hotels.class),key);
+		results = searchTemplate.query(sql, BeanPropertyRowMapper.newInstance(Hotels.class),key,key);
 		}
 		catch(InvalidResultSetAccessException rs) {
         	throw new RuntimeException(rs);
