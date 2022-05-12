@@ -111,6 +111,39 @@ Note - Always fetch latest updates from repository before you start working on.
 
 ## Design decisions
 
+1. We created a loosely coupled MVC pattern where our application APIs are hosted in the cloud and the UI is hosted on our local machines.
+2. We did not use Spring JPA repositories because before inserting the data into db, certain calculations had to be made. For example, in case of a new hotel booking, it is necessary to find out the final price and  reward points based on the final price.
+3. We have used AWS RDS because of its high-availability, backup and recovery features.
+4. We used JDBC driver to connect to AWS RDS, which provided us with the flexibility to use a variety of queries to fetch different data.
+5. We used SpringBoot framework for following reasons
+
+                    1. Easy dependency management - Our entire backend runs only using 7 dependencies.
+                                Spring-boot-starter-web
+                                Spring-boot-starter-test
+                                Spring-boot-starter-jdbc
+                                Spring-boot-starter-actuator
+                                Mysql-connector-java
+                                Spring-session-core
+                                Spring-session-jdbc
+                    2. SpringBoot applications includes a embedded web server
+                    3. No need of deploying war files.
+                    4. Application is easy to start.
+                    
+6. We did not concentrate too much on UX as our main goal is to show a working application with a high quality UI.
+7. JQuery to be used to improve the performance and achieve the dynamic UserInterface, by generating the HTML and Styling dynamically on the BookingSummary and Hotel History Page.
+8. Implemented Event Listeners to handle user actions from the user interface, Event Listeners are reliable to use as they invoke the required Javascript methods.
+9. Toast messages are implemented to handle and display the error messages for multiple user input failure scenarios.
+10. As the web UI will be used across different browsers and devices, we leveraged Bootstrap as it is flexible for responsive design, while maintaining wide browser compatibility and offers consistent design by using reusable components.
+11. An AutoScaling group is configured to spin up EC2 instances in case of failures. This ASG consists of user data which is a bash script that installs aws-cli, java, downloads packages from S3 and runs jar file. User data script runs on every initialization of EC2 instances. An artifact(Jar file) is uploaded to AWS S3 and EC2 uses IAM to download the artifact from S3.
+12. An Application load balancer is configured to forward http traffic to a target and target group forwards traffic from 80 to 8090 (the port where application is running), health checks are configured on target group and ASG will create new instances (with 300 sec grace period) on failure in health checks. 
+13. As an additional security feature, a security group is configured so the requests are terminated at the load balancer and only the load balancer can talk to EC2 on 8090.
+
+
+
+
+
+
+
 
 ## Story board sample
 
