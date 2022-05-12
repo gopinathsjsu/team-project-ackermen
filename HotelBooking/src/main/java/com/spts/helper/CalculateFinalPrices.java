@@ -117,9 +117,7 @@ public class CalculateFinalPrices {
 		amenityPrices.add(meals);
 	}
 	
-	/*
-	 * taken from https://www.javaprogramto.com/2020/11/calculate-days-between-two-dates-in.html#:~:text=getTime()%20method%20for%20two,That's%20all.
-	 */
+	
 	public int checkDuration(String checkinDate, String checkoutDate) {
 		SimpleDateFormat formatter = new SimpleDateFormat(DATEFORMAT); 
 		SimpleDateFormat sqlFormatter = new SimpleDateFormat(SQLDATEFORMAT);

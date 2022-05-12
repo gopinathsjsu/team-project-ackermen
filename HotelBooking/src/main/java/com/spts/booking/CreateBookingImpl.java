@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.InvalidResultSetAccessException;
@@ -25,7 +23,7 @@ import com.spts.signup.User;
 
 @Component
 public class CreateBookingImpl implements ICreateBooking {
-	
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	@Autowired
@@ -34,18 +32,14 @@ public class CreateBookingImpl implements ICreateBooking {
 	private UpdateRoomAvailability update;
 	@Autowired 
 	private CheckRoomAvailability available;
-	
-	private static final Logger log = LoggerFactory.getLogger(CreateBookingImpl.class);
-	
-	
-	
+
 	private int currentBookingId;
-	
+
 	private static final  String OUTPUTDATE = "yyyy-MM-dd";
 	private static final String INPUTDATE = "yyyy-MM-dd";
-	
+
 	private double finalPrice = 0;
-	
+
 	public double getFinalPrice() {
 		return finalPrice;
 	}
@@ -55,14 +49,14 @@ public class CreateBookingImpl implements ICreateBooking {
 	}
 
 	private boolean roomsNotAvailable = false;
-	
+
 	public int makeNewReservation(Booking newBooking,User user) {
 		List<User> testuser = new ArrayList<>();
 		List<Hotels> testhotel = new ArrayList<>();
 		String userDetailsQuery = "select * from user where id = ?"; 
 		String hotelDetailsQuery = "select * from hotels where hotel_id = ?";
 		String currentBookingIdQuery = "SELECT LAST_INSERT_ID()";
-		
+
 		if(user.getId() != newBooking.getUserId())
 			return 7777;
 		if(!user.getEmail().equals(newBooking.getBookingEmail()))
@@ -80,32 +74,32 @@ public class CreateBookingImpl implements ICreateBooking {
 			return 3333;
 		//check if the provided user id is valid or not
 		try {   
-    	    //if userid is not valid, throw an error
-    	    testuser = jdbcTemplate.query(userDetailsQuery, BeanPropertyRowMapper.newInstance(User.class),newBooking.getUserId());
-    	    if(testuser.isEmpty())
-    	    	return 4444;     
-            
-	    }
-	    catch(InvalidResultSetAccessException rs) {
-	    	throw new RuntimeException(rs);
-	    }
-	    catch(DataAccessException da) {
-	    	throw new RuntimeException(da);
-	    }
+			//if userid is not valid, throw an error
+			testuser = jdbcTemplate.query(userDetailsQuery, BeanPropertyRowMapper.newInstance(User.class),newBooking.getUserId());
+			if(testuser.isEmpty())
+				return 4444;     
+
+		}
+		catch(InvalidResultSetAccessException rs) {
+			throw new RuntimeException(rs);
+		}
+		catch(DataAccessException da) {
+			throw new RuntimeException(da);
+		}
 		//check if selected hotel is valid?
 		try {   
-    	    //if hotelid is not valid, throw an error
+			//if hotelid is not valid, throw an error
 			testhotel = jdbcTemplate.query(hotelDetailsQuery, BeanPropertyRowMapper.newInstance(Hotels.class),newBooking.getHotelId());
-    	    if(testhotel.isEmpty())
-    	    	return 6666;     
-            
-	    }
-	    catch(InvalidResultSetAccessException rs) {
-	    	throw new RuntimeException(rs);
-	    }
-	    catch(DataAccessException da) {
-	    	throw new RuntimeException(da);
-	    }
+			if(testhotel.isEmpty())
+				return 6666;     
+
+		}
+		catch(InvalidResultSetAccessException rs) {
+			throw new RuntimeException(rs);
+		}
+		catch(DataAccessException da) {
+			throw new RuntimeException(da);
+		}
 		//check availability
 		available.checkRoomAvailability(newBooking);
 		if(roomsNotAvailable)
@@ -123,7 +117,7 @@ public class CreateBookingImpl implements ICreateBooking {
 			code = 9999;
 			return code;
 		}
-		
+
 		String addNewBookingQuery = "INSERT INTO booking (user_id, hotel_id, booking_email, adult_count, children_count, check_in_date, check_out_date, "
 				+ "single_rooms_booked, double_rooms_booked,suites_booked,final_price,booking_status,daily_con_bf,gym,pool,parking,meals) VALUES (?,?,?,?,?,?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
 		code = jdbcTemplate.update(addNewBookingQuery, newBooking.getUserId(), newBooking.getHotelId(),
@@ -131,11 +125,11 @@ public class CreateBookingImpl implements ICreateBooking {
 				newBooking.getDoubleroomsBooked(),newBooking.getSuitesBooked(),finalPrice,"Upcoming",newBooking.getBreakfast(),newBooking.getGym(),newBooking.getPool(),newBooking.getParking(),newBooking.getMeals());
 		//return booking id
 		int newBookingId = jdbcTemplate.queryForObject(currentBookingIdQuery, Integer.class);
-        this.setCurrentBookingId(newBookingId);
-        update.updateRooms(newBooking,"Create");
+		this.setCurrentBookingId(newBookingId);
+		update.updateRooms(newBooking,"Create");
 		return code;
 	}
-	
+
 	public int getCurrentBookingId() {
 		return currentBookingId;
 	}
