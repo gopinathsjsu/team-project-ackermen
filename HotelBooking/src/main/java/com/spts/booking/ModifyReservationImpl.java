@@ -32,7 +32,7 @@ public class ModifyReservationImpl implements IModifyReservation {
 	private CalculateFinalPrices prices;
 	
 	private static final  String OUTPUTDATE = "yyyy-MM-dd";
-	private static final String INPUTDATE = "MM/dd/yyyy";
+	private static final String INPUTDATE = "yyyy-MM-dd";
 	
 	private static final Logger log = LoggerFactory.getLogger(ModifyReservationImpl.class);
 	private double finalPrice;

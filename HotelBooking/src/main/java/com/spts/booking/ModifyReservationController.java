@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.spts.helper.CalculateFinalPrices;
 import com.spts.signup.User;
 
 
@@ -19,6 +20,9 @@ import com.spts.signup.User;
 public class ModifyReservationController{
 	@Autowired
 	private ModifyReservationImpl modifyReservation;
+	
+	@Autowired
+	private CalculateFinalPrices prices;
 	
 	private final String notLoggedIn = "Must be logged in.";
 	
@@ -83,6 +87,8 @@ public class ModifyReservationController{
 		 break;
 		 case 1: newBooking.setStatusMessage("Booking modified successfully");
 		         newBooking.setFinalPrice(modifyReservation.getFinalPrice());
+		         newBooking.setRewardPoints(prices.getFrPoints());
+		         newBooking.setBookingStatus("Modified-Upcoming");
 		 break;
 		 default: newBooking.setStatusMessage("Unknown error");
 		 }
